@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/*
+  Fire Loans brand system v2. v1 leaned on the logo's bright emerald
+  (#00B389) as the dominant surface color (light-mint backgrounds, badges,
+  everywhere) and read as cheap/templated. Fix: neutral stone/white as the
+  base everywhere, a much darker & less-saturated pine as the "premium dark
+  surface," and green demoted to a sparing accent (icons, links, CTAs only).
+  Added a muted brass/gold as a second accent — deep green + brass is a
+  classic "private bank" pairing and does more of the premium lifting than
+  the green itself.
+*/
+:root {
+  --color-ink: #14171a;
+  --color-ink-soft: #545b60;
+  --color-cream: #fbfaf8;
+  --color-cream-muted: #f2f1ed;
+  --color-paper: #ffffff;
+
+  --color-brand-50: #e9f4ee;
+  --color-brand-100: #cde6da;
+  --color-brand-300: #6bbe9b;
+  --color-brand-500: #0e8f68;
+  --color-brand-600: #0b7355;
+  --color-brand-700: #085c44;
+
+  --color-pine-500: #0d3a2b;
+  --color-pine-700: #082a1f;
+  --color-pine-900: #051710;
+  --color-pine-950: #030f0a;
+
+  --color-gold-100: #f6e9c9;
+  --color-gold-300: #f0d998;
+  --color-gold-400: #d8bd85;
+  --color-gold-500: #c7a668;
+  --color-gold-700: #6b5220;
+
+  --color-success: #0b7355;
+  --color-error: #ba1a1a;
+  --color-border: #e7e5df;
+
+  --background: var(--color-cream);
+  --foreground: var(--color-ink);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-cream: var(--color-cream);
+  --color-cream-muted: var(--color-cream-muted);
+  --color-paper: var(--color-paper);
+
+  --color-brand-50: var(--color-brand-50);
+  --color-brand-100: var(--color-brand-100);
+  --color-brand-300: var(--color-brand-300);
+  --color-brand-500: var(--color-brand-500);
+  --color-brand-600: var(--color-brand-600);
+  --color-brand-700: var(--color-brand-700);
+
+  --color-pine-500: var(--color-pine-500);
+  --color-pine-700: var(--color-pine-700);
+  --color-pine-900: var(--color-pine-900);
+  --color-pine-950: var(--color-pine-950);
+
+  --color-gold-100: var(--color-gold-100);
+  --color-gold-300: var(--color-gold-300);
+  --color-gold-400: var(--color-gold-400);
+  --color-gold-500: var(--color-gold-500);
+  --color-gold-700: var(--color-gold-700);
+
+  --color-success: var(--color-success);
+  --color-error: var(--color-error);
+  --color-border: var(--color-border);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
