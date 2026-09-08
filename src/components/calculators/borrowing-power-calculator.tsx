@@ -84,13 +84,22 @@ export function BorrowingPowerCalculator() {
             )}
           </div>
 
-          <FieldGroup label="Other annual income" hint="Rental, bonuses, etc.">
+          <FieldGroup label="Other annual income" hint="Rental, bonus, etc. — assessed at 80%">
             <CurrencyInput value={otherIncome} onChange={setOtherIncome} />
           </FieldGroup>
 
-          <FieldGroup label="Annual living expenses" hint="Editable estimate">
+          <FieldGroup
+            label="Annual living expenses"
+            hint={result.expenseFloorApplied ? "Raised to household minimum below" : "Editable estimate"}
+          >
             <CurrencyInput value={livingExpenses} onChange={setLivingExpenses} />
           </FieldGroup>
+          {result.expenseFloorApplied && (
+            <p className="-mt-3 text-xs text-ink-soft">
+              We&apos;ve assessed at {formatCurrency(result.assessedMonthlyExpenses * 12)}/year — a minimum
+              benchmark for your household size, since it&apos;s higher than what you entered.
+            </p>
+          )}
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <FieldGroup label="Other loan repayments" hint="Per month">
@@ -131,8 +140,10 @@ export function BorrowingPowerCalculator() {
             <ResultStat label="Monthly surplus assessed" value={formatCurrency(result.monthlySurplus)} emphasis />
           </div>
           <p className="text-xs text-cream/50">
-            Assessed at your rate + 3% serviceability buffer, in line with standard lending
-            practice — the real amount depends on the lender and your full financial position.
+            We assess this using your rate plus a 3% serviceability buffer (aligned with APRA
+            guidance), and conservative assumptions about your available monthly surplus and
+            household expenses. Actual borrowing capacity varies by lender and your complete
+            financial position.
           </p>
         </div>
       }

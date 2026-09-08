@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
 import { loanTypes, getLoanType } from "@/content/loan-types";
+import { getLoanDetail } from "@/content/loan-details";
+import { getAllSlugs } from "@/lib/content";
 import { ComingSoon } from "@/components/conversion/coming-soon";
+import {
+  LoanHero,
+  LoanSection,
+  LoanWhoList,
+  LoanProcess,
+  LoanFeatureGrid,
+  LoanTip,
+  LoanFaq,
+  LoanCta,
+} from "@/components/loans/loan-page";
 
 export function generateStaticParams() {
   return loanTypes.map((loan) => ({ slug: loan.slug }));
@@ -13,7 +25,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const loan = getLoanType(slug);
-  return { title: loan ? loan.title : "Coming Soon" };
+  const detail = getLoanDetail(slug);
+  return {
+    title: loan ? loan.title : "Coming Soon",
+    description: detail?.subhead ?? loan?.description,
+  };
 }
 
 function titleize(slug: string) {
@@ -30,17 +46,70 @@ export default async function LoanTypePage({
 }) {
   const { slug } = await params;
   const loan = getLoanType(slug);
+  const detail = getLoanDetail(slug);
   const title = loan ? loan.title : titleize(slug);
 
+  if (!loan || !detail) {
+    return (
+      <ComingSoon
+        eyebrow="Coming Soon"
+        title={title}
+        description={
+          loan
+            ? `${loan.description} We're building out the full ${loan.title} page — get in touch now and a broker can walk you through it today.`
+            : "We're building out this page. Get in touch and a broker can help you directly today."
+        }
+      />
+    );
+  }
+
+  const storySlugs = getAllSlugs("stories");
+  const storyHref = storySlugs.includes(slug) ? `/client-stories/${slug}` : undefined;
+
   return (
-    <ComingSoon
-      eyebrow="Coming Soon"
-      title={title}
-      description={
-        loan
-          ? `${loan.description} We're building out the full ${loan.title} page — get in touch now and a broker can walk you through it today.`
-          : "We're building out this page. Get in touch and a broker can help you directly today."
-      }
-    />
+    <div className="bg-cream">
+      <LoanHero
+        icon={loan.icon}
+        category={loan.title}
+        title={loan.title}
+        headline={detail.headline}
+        subhead={detail.subhead}
+        keyFacts={detail.keyFacts}
+      />
+
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <LoanSection number="01" title="Who it's for">
+          <LoanWhoList items={detail.whoItsFor} />
+        </LoanSection>
+
+        <LoanSection
+          number="02"
+          title="How it works"
+          description="The same clear process every time, shaped around this specific loan type."
+        >
+          <LoanProcess steps={detail.process} />
+        </LoanSection>
+
+        <LoanSection number="03" title="What's included">
+          <LoanFeatureGrid icon={loan.icon} features={detail.features} />
+          <div className="mt-8">
+            <LoanTip>{detail.tip}</LoanTip>
+          </div>
+        </LoanSection>
+
+        <LoanSection number="04" title="Common questions">
+          <LoanFaq faqs={detail.faqs} />
+        </LoanSection>
+      </div>
+
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <LoanCta
+          title={`Ready to talk through your ${loan.title.toLowerCase()}?`}
+          calculatorHref={detail.calculatorHref}
+          calculatorLabel={detail.calculatorLabel}
+          storyHref={storyHref}
+        />
+      </div>
+    </div>
   );
 }
