@@ -1,9 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { loanTypes } from "@/content/loan-types";
 import { OfferGrid } from "@/components/conversion/offer-grid";
 import { ServicesTabs } from "@/components/conversion/services-tabs";
 import { ContactForm } from "@/components/conversion/contact-form";
 import { FireStoriesSlider } from "@/components/stories/fire-stories-slider";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

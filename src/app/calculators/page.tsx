@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = { title: "Calculators" };
+export const metadata: Metadata = {
+  title: "Calculators",
+  description:
+    "Free Australian mortgage calculators — borrowing power, loan repayments, stamp duty and refinance savings — from Fire Loans.",
+  alternates: { canonical: "/calculators" },
+};
 
 const calculators = [
   {

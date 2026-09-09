@@ -78,19 +78,19 @@ export function SiteHeader() {
             )}
           </div>
 
-          <span className="flex cursor-default items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold text-ink-soft/50">
+          <Link
+            href="/news"
+            className="rounded-lg px-3 py-2 text-sm font-semibold text-ink-soft transition-colors hover:text-brand-600"
+          >
             News
-            <span className="rounded-full bg-cream-muted px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink-soft/70">
-              Soon
-            </span>
-          </span>
+          </Link>
 
-          <span className="flex cursor-default items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold text-ink-soft/50">
+          <Link
+            href="/articles"
+            className="rounded-lg px-3 py-2 text-sm font-semibold text-ink-soft transition-colors hover:text-brand-600"
+          >
             Articles
-            <span className="rounded-full bg-cream-muted px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink-soft/70">
-              Soon
-            </span>
-          </span>
+          </Link>
 
           <Link
             href="/calculators"
@@ -151,18 +151,20 @@ export function SiteHeader() {
               </Link>
             ))}
 
-            <div className="mt-2 flex items-center justify-between rounded-lg px-3 py-2.5 text-base font-medium text-ink-soft/50">
+            <Link
+              href="/news"
+              className="rounded-lg px-3 py-2.5 text-base font-medium text-ink-soft hover:bg-brand-50 hover:text-brand-700"
+              onClick={() => setMobileOpen(false)}
+            >
               News
-              <span className="rounded-full bg-cream-muted px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide">
-                Soon
-              </span>
-            </div>
-            <div className="flex items-center justify-between rounded-lg px-3 py-2.5 text-base font-medium text-ink-soft/50">
+            </Link>
+            <Link
+              href="/articles"
+              className="rounded-lg px-3 py-2.5 text-base font-medium text-ink-soft hover:bg-brand-50 hover:text-brand-700"
+              onClick={() => setMobileOpen(false)}
+            >
               Articles
-              <span className="rounded-full bg-cream-muted px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide">
-                Soon
-              </span>
-            </div>
+            </Link>
 
             <Link
               href="/calculators"

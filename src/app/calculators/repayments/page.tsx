@@ -5,6 +5,7 @@ import { RepaymentCalculator } from "@/components/calculators/repayment-calculat
 export const metadata: Metadata = {
   title: "Loan Repayment Calculator",
   description: "Work out your weekly, fortnightly or monthly loan repayments in seconds.",
+  alternates: { canonical: "/calculators/repayments" },
 };
 
 export default function RepaymentsPage() {

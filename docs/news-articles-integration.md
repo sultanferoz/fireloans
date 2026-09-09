@@ -1,8 +1,10 @@
-# News & Articles — integration plan (not built yet)
+# News & Articles — integration plan (BUILT — see status below)
 
-Per instruction, the `News` and `Articles` nav items are shipped as visible-but-inert
-("Soon" badge, no link, no page) until this is explicitly commanded to build. This
-file is the reference for that future build.
+**Status: built.** `/news` and `/articles` are live, nav links point to them, and the
+RSS aggregation pipeline described below is implemented at `src/lib/news/`. This file
+is kept as the reference for how it works and how to extend it — see the build report
+delivered in-conversation for the full file list, source PASS/FAIL results, and test
+results.
 
 ## News (real-time AU mortgage/finance news)
 

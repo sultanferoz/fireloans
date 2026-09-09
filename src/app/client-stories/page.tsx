@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Client Stories",
   description:
     "How real Fire Loans clients — first home buyers, investors, business owners and builders — found the right loan structure for their situation.",
+  alternates: { canonical: "/client-stories" },
 };
 
 export default function ClientStoriesPage() {

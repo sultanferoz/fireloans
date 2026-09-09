@@ -5,6 +5,7 @@ import { StampDutyCalculator } from "@/components/calculators/stamp-duty-calcula
 export const metadata: Metadata = {
   title: "Stamp Duty Calculator",
   description: "Estimate stamp duty, government fees and first home owner grants across every Australian state and territory.",
+  alternates: { canonical: "/calculators/stamp-duty" },
 };
 
 export default function StampDutyPage() {

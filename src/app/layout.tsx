@@ -3,6 +3,7 @@ import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteLoader } from "@/components/layout/site-loader";
+import { JsonLd } from "@/components/seo/json-ld";
 import "./globals.css";
 
 const fontDisplay = Playfair_Display({
@@ -29,11 +30,16 @@ export const metadata: Metadata = {
     "Fire Loans is an Australian mortgage broker helping first home buyers, refinancers, investors and business owners find the right loan structure across home, SMSF, trust, business, construction and commercial finance.",
   keywords: [
     "mortgage broker Australia",
+    "home loan broker",
     "home loans",
     "refinancing",
     "first home buyer",
     "investment loan",
     "SMSF home loan",
+    "business loan broker",
+    "commercial property finance",
+    "construction loan",
+    "compare home loans Australia",
     "Fire Loans",
   ],
   openGraph: {
@@ -45,6 +51,35 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": ["Organization", "FinancialService"],
+  name: "Fire Loans",
+  legalName: "Fire Financial Services Pty Ltd",
+  url: siteUrl,
+  logo: `${siteUrl}/images/logo.png`,
+  telephone: "+61478933786",
+  email: "broker@fireloans.com.au",
+  areaServed: "AU",
+  identifier: [
+    { "@type": "PropertyValue", name: "ABN", value: "35 689 635 667" },
+    { "@type": "PropertyValue", name: "Credit Representative Number", value: "572433" },
+    { "@type": "PropertyValue", name: "Australian Credit Licence", value: "384704" },
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Fire Loans",
+  url: siteUrl,
 };
 
 export const viewport: Viewport = {
@@ -58,6 +93,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${fontDisplay.variable} ${fontBody.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-cream text-ink font-sans">
+        <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
         <SiteLoader />
         <SiteHeader />
         <main className="flex-1">{children}</main>

@@ -6,13 +6,14 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Meet Fire Loans — an Australian mortgage broker structuring loans around your financial independence, not just the next application.",
+  alternates: { canonical: "/about" },
 };
 
 // Real Fire Loans team members (confirmed). Fayaz and Rumina's supplied
-// photos turned out to be AI-generated template headshots (Fayaz's even
-// carries a different company's name on the desk plate/bookshelf —
-// "Meridian Private Wealth") so they keep the monogram placeholder until
-// real photos are supplied. James, Emily and Sarah's photos are real.
+// photos weren't usable (Fayaz's carries a different company's name on the
+// desk plate/bookshelf — "Meridian Private Wealth") so they keep the
+// monogram placeholder until real photos are supplied. James, Emily and
+// Sarah's photos are real.
 const team = [
   {
     name: "Fayaz",
@@ -187,7 +188,7 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* TODO: replace with a real photo of Rumina — the supplied one was an AI-generated headshot */}
+            {/* Replace with a real photo of Rumina once one is supplied */}
             <div className="lg:col-span-5">
               <div className="relative mx-auto aspect-square w-full max-w-[380px] overflow-hidden rounded-3xl shadow-xl">
                 <BrandAvatar initial="R" size="hero" />
@@ -312,7 +313,7 @@ export default function AboutPage() {
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                 ) : (
-                  // TODO: replace with a real photo of Fayaz — the supplied one was an AI-generated headshot for a different company
+                  // Replace with a real photo of Fayaz once one is supplied
                   <BrandAvatar initial={member.initial} />
                 )}
 

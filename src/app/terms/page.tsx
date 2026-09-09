@@ -11,6 +11,7 @@ import { LegalDocumentShell, ReadingProgressBar, type LegalSectionMeta } from "@
 export const metadata: Metadata = {
   title: "Terms of Use",
   description: "The terms that apply to using the Fire Loans website.",
+  alternates: { canonical: "/terms" },
 };
 
 const sections: LegalSectionMeta[] = [

@@ -11,6 +11,7 @@ import { LegalDocumentShell, ReadingProgressBar, type LegalSectionMeta } from "@
 export const metadata: Metadata = {
   title: "Credit Guide",
   description: "Fire Loans' Credit Guide — who we are, what we do, how we're paid, and how to raise a concern.",
+  alternates: { canonical: "/credit-guide" },
 };
 
 const sections: LegalSectionMeta[] = [

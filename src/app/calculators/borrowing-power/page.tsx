@@ -5,6 +5,7 @@ import { BorrowingPowerCalculator } from "@/components/calculators/borrowing-pow
 export const metadata: Metadata = {
   title: "Borrowing Power Calculator",
   description: "Get an estimate of how much you could borrow, based on your income and expenses.",
+  alternates: { canonical: "/calculators/borrowing-power" },
 };
 
 export default function BorrowingPowerPage() {

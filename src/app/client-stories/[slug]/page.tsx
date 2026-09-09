@@ -28,6 +28,7 @@ export async function generateMetadata({
     return {
       title: frontmatter.title,
       description: frontmatter.hook,
+      alternates: { canonical: `/client-stories/${slug}` },
     };
   } catch {
     return {};

@@ -3,6 +3,7 @@ import { loanTypes, getLoanType } from "@/content/loan-types";
 import { getLoanDetail } from "@/content/loan-details";
 import { getAllSlugs } from "@/lib/content";
 import { ComingSoon } from "@/components/conversion/coming-soon";
+import { JsonLd } from "@/components/seo/json-ld";
 import {
   LoanHero,
   LoanSection,
@@ -29,6 +30,7 @@ export async function generateMetadata({
   return {
     title: loan ? loan.title : "Coming Soon",
     description: detail?.subhead ?? loan?.description,
+    alternates: { canonical: `/loans/${slug}` },
   };
 }
 
@@ -66,8 +68,28 @@ export default async function LoanTypePage({
   const storySlugs = getAllSlugs("stories");
   const storyHref = storySlugs.includes(slug) ? `/client-stories/${slug}` : undefined;
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: detail.faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.q,
+      acceptedAnswer: { "@type": "Answer", text: faq.a },
+    })),
+  };
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Fire Loans", item: "https://www.fireloans.com.au" },
+      { "@type": "ListItem", position: 2, name: loan.title, item: `https://www.fireloans.com.au/loans/${slug}` },
+    ],
+  };
+
   return (
     <div className="bg-cream">
+      <JsonLd data={[faqJsonLd, breadcrumbJsonLd]} />
       <LoanHero
         icon={loan.icon}
         category={loan.title}

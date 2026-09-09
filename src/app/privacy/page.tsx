@@ -11,6 +11,7 @@ import { LegalDocumentShell, ReadingProgressBar, type LegalSectionMeta } from "@
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "How Fire Loans collects, uses and protects your personal information.",
+  alternates: { canonical: "/privacy" },
 };
 
 const sections: LegalSectionMeta[] = [

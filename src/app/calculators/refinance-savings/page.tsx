@@ -5,6 +5,7 @@ import { RefinanceSavingsCalculator } from "@/components/calculators/refinance-s
 export const metadata: Metadata = {
   title: "Refinance Savings Calculator",
   description: "See what switching to a new loan could actually save you, fees and honeymoon rates included.",
+  alternates: { canonical: "/calculators/refinance-savings" },
 };
 
 export default function RefinanceSavingsPage() {

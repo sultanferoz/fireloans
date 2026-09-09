@@ -33,10 +33,10 @@ export function ContactForm() {
   } = useForm<FormValues>({ resolver: zodResolver(schema) });
 
   async function onSubmit(values: FormValues) {
-    // TODO: wire this up to a real destination (email API, CRM webhook, etc.)
-    // once a delivery channel is decided — nothing is sent anywhere yet.
+    // Not yet connected to a delivery channel (email API / CRM webhook) — wire this
+    // to a real destination before launch, or enquiries submitted here are lost.
     await new Promise((r) => setTimeout(r, 500));
-    console.log("Fire Loans enquiry (not yet wired to a backend):", values);
+    void values;
     reset();
   }
 
