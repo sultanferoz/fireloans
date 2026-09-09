@@ -2,6 +2,7 @@ import type { LoanIcon } from "@/content/loan-types";
 
 export type LoanDetail = {
   slug: string;
+  heroImage: string;
   headline: string;
   subhead: string;
   keyFacts: [string, string, string];
@@ -17,6 +18,7 @@ export type LoanDetail = {
 export const loanDetails: Record<string, LoanDetail> = {
   "owner-occupied": {
     slug: "owner-occupied",
+    heroImage: "/images/owner.jpg",
     headline: "The loan you'll actually live in, structured right from day one",
     subhead:
       "Buying the home you'll live in is a different lending conversation to an investment — it's about the rate today and the flexibility over the next ten years. We compare fixed, variable and split structures across our panel so the loan fits your life, not the other way around.",
@@ -88,6 +90,7 @@ export const loanDetails: Record<string, LoanDetail> = {
 
   "investment-loan": {
     slug: "investment-loan",
+    heroImage: "/images/home.jpg",
     headline: "Finance built to grow your portfolio, not just settle one property",
     subhead:
       "An investment loan does more work than an owner-occupied one — it needs to support serviceability for the property after this one. We structure lending around interest-only terms, cross-collateralisation risk and offset access, so your next purchase isn't harder because of how this one was set up.",
@@ -159,6 +162,7 @@ export const loanDetails: Record<string, LoanDetail> = {
 
   "smsf-home-loan": {
     slug: "smsf-home-loan",
+    heroImage: "/images/smsf.jpg",
     headline: "Property investment through your super, structured to stay compliant",
     subhead:
       "SMSF lending runs through a Limited Recourse Borrowing Arrangement (LRBA) and a bare trust — get the structure wrong and it's not just a lending problem, it's a compliance one. We work alongside your accountant or financial adviser to get the lending side right.",
@@ -230,6 +234,7 @@ export const loanDetails: Record<string, LoanDetail> = {
 
   "trust-loan": {
     slug: "trust-loan",
+    heroImage: "/images/trust.jpg",
     headline: "Lending structured around your trust, not against it",
     subhead:
       "Discretionary trusts, unit trusts and corporate trustees each change how a lender assesses an application. We handle the structuring conversation with your accountant so the loan matches the trust deed, not the other way around.",
@@ -301,6 +306,7 @@ export const loanDetails: Record<string, LoanDetail> = {
 
   "company-loan": {
     slug: "company-loan",
+    heroImage: "/images/company.jpg",
     headline: "Finance in your company's name, backed by the right structure",
     subhead:
       "Borrowing through a Pty Ltd company changes what a lender wants to see — trading history, director guarantees and company financials, not just a payslip. We package the application the way a commercial credit team actually wants to read it.",
@@ -372,6 +378,7 @@ export const loanDetails: Record<string, LoanDetail> = {
 
   "car-loan": {
     slug: "car-loan",
+    heroImage: "/images/car.jpg",
     headline: "Finance sorted before you fall for the car",
     subhead:
       "Walking onto a lot with finance already approved changes the entire negotiation. We compare fixed-rate terms, balloon options and private-sale eligibility across our panel, so you're choosing a car — not being sold a finance package.",
@@ -443,6 +450,7 @@ export const loanDetails: Record<string, LoanDetail> = {
 
   "business-loan": {
     slug: "business-loan",
+    heroImage: "/images/business.jpg",
     headline: "Funding that matches how your business actually earns",
     subhead:
       "Working capital, stock, expansion or a seasonal cash flow gap all need a different kind of funding. We compare secured and unsecured options across our panel so the repayment structure matches how money actually moves through your business.",
@@ -514,6 +522,7 @@ export const loanDetails: Record<string, LoanDetail> = {
 
   "construction-loan": {
     slug: "construction-loan",
+    heroImage: "/images/construction.jpg",
     headline: "Funding released stage by stage, matched to your build",
     subhead:
       "A construction loan isn't a lump sum — it's progressive drawdowns tied to your builder's fixed-price contract, with interest charged only on funds you've actually drawn. We manage the lender side of that process so it keeps pace with your build.",
@@ -585,6 +594,7 @@ export const loanDetails: Record<string, LoanDetail> = {
 
   "commercial-loan": {
     slug: "commercial-loan",
+    heroImage: "/images/comercial.jpg",
     headline: "Commercial property finance built around the asset and the tenant",
     subhead:
       "Commercial lending is assessed differently to residential — the property type, lease terms and tenant strength all shape what a lender will offer. We compare panel lenders on that basis, not by treating it like a standard home loan with a bigger number.",
@@ -656,6 +666,7 @@ export const loanDetails: Record<string, LoanDetail> = {
 
   "equipment-loan": {
     slug: "equipment-loan",
+    heroImage: "/images/epiqipment.jpg",
     headline: "Keep your equipment moving without draining cash flow",
     subhead:
       "Machinery, trucks and tools rarely need to be paid for in cash to make financial sense. We compare chattel mortgage and lease structures across our panel so new or used equipment is financed in a way that suits your business, not just the supplier's finance desk.",

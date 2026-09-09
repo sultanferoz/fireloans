@@ -97,6 +97,7 @@ export default async function LoanTypePage({
         headline={detail.headline}
         subhead={detail.subhead}
         keyFacts={detail.keyFacts}
+        image={detail.heroImage}
       />
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
