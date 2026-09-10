@@ -39,8 +39,26 @@ export function CalculatorGrid({ inputs, results }: { inputs: ReactNode; results
   return (
     <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
       <div className="rounded-3xl bg-paper p-6 shadow-xl shadow-ink/5 sm:p-8 lg:col-span-7">{inputs}</div>
-      <div className="overflow-hidden rounded-3xl bg-pine-900 p-6 text-cream shadow-xl shadow-ink/10 sm:p-8 lg:col-span-5">
-        {results}
+
+      {/* This column stays as tall as the inputs column (default grid stretch) purely to give
+          the sticky card below room to travel — it un-sticks once its tall parent runs out,
+          i.e. exactly when the inputs column ends. */}
+      <div className="lg:col-span-5">
+        <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-pine-900 p-6 text-cream shadow-2xl shadow-pine-950/40 sm:p-8 lg:sticky lg:top-24">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.05]"
+            aria-hidden="true"
+            style={{
+              backgroundImage:
+                "repeating-linear-gradient(115deg, transparent, transparent 68px, currentColor 68px, currentColor 69px)",
+            }}
+          />
+          <div
+            className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-gold-500/10 blur-[90px]"
+            aria-hidden="true"
+          />
+          <div className="relative">{results}</div>
+        </div>
       </div>
     </div>
   );

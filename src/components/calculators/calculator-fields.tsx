@@ -92,6 +92,55 @@ export function NumberInput({
   );
 }
 
+const FREQUENCY_OPTIONS = [
+  { value: "weekly", label: "/ week" },
+  { value: "fortnightly", label: "/ fortnight" },
+  { value: "monthly", label: "/ month" },
+  { value: "annually", label: "/ year" },
+] as const;
+
+export type FieldFrequency = (typeof FREQUENCY_OPTIONS)[number]["value"];
+
+/** A currency amount paired with a weekly/fortnightly/monthly/annual frequency selector. */
+export function CurrencyFrequencyInput({
+  value,
+  onChange,
+  frequency,
+  onFrequencyChange,
+}: {
+  value: number;
+  onChange: (v: number) => void;
+  frequency: FieldFrequency;
+  onFrequencyChange: (f: FieldFrequency) => void;
+}) {
+  return (
+    <div className="flex gap-2">
+      <div className="relative flex-1">
+        <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft">$</span>
+        <input
+          type="number"
+          inputMode="decimal"
+          min={0}
+          className={`${inputClasses} pl-7`}
+          value={Number.isFinite(value) ? value : ""}
+          onChange={(e) => onChange(e.target.value === "" ? 0 : Number(e.target.value))}
+        />
+      </div>
+      <select
+        className="h-12 shrink-0 rounded-xl border border-border bg-cream-muted px-2 text-sm font-semibold text-ink-soft focus:border-pine-700 focus:outline-none focus:ring-2 focus:ring-pine-700/10"
+        value={frequency}
+        onChange={(e) => onFrequencyChange(e.target.value as FieldFrequency)}
+      >
+        {FREQUENCY_OPTIONS.map((opt) => (
+          <option key={opt.value} value={opt.value}>
+            {opt.label}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
 export function SelectInput<T extends string>({
   value,
   onChange,

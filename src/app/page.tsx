@@ -3,6 +3,7 @@ import Link from "next/link";
 import { loanTypes } from "@/content/loan-types";
 import { OfferGrid } from "@/components/conversion/offer-grid";
 import { ServicesTabs } from "@/components/conversion/services-tabs";
+import { BorrowingPowerCalculator } from "@/components/calculators/borrowing-power-calculator";
 import { ContactForm } from "@/components/conversion/contact-form";
 import { FireStoriesSlider } from "@/components/stories/fire-stories-slider";
 
@@ -182,6 +183,32 @@ export default function Home() {
         <div className="mt-10">
           <FireStoriesSlider />
         </div>
+      </section>
+
+      {/* Borrowing Power Calculator */}
+      <section id="borrowing-power" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-wide text-gold-700">
+            Free Borrowing Power Calculator
+          </p>
+          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            Know your number before you fall in love with a property.
+          </h2>
+          <p className="mt-3 text-ink-soft">
+            Real tax brackets, a genuine household expenditure benchmark, and a proper rate
+            buffer — the same serviceability approach real lenders use. Enter your numbers
+            below for a real answer in minutes.
+          </p>
+        </div>
+        <div className="mt-10">
+          <BorrowingPowerCalculator />
+        </div>
+        <p className="mx-auto mt-8 max-w-3xl rounded-xl bg-cream-muted p-4 text-center text-sm leading-relaxed text-ink-soft">
+          This calculator provides estimates only, based on the figures you enter and general
+          assumptions — it doesn&apos;t take into account your full financial situation and isn&apos;t
+          formal lending or financial advice. Talk to a Fire Loans broker for an assessment
+          specific to you.
+        </p>
       </section>
 
       {/* Contact */}

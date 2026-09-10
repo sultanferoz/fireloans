@@ -13,6 +13,9 @@ export type LoanIcon =
 export type LoanTypeEntry = {
   slug: string;
   title: string;
+  /** Plain, literal category name — used in SEO metadata and anywhere the branded
+   * name alone would be ambiguous (search results, page titles). */
+  formalName: string;
   description: string;
   icon: LoanIcon;
 };
@@ -20,62 +23,72 @@ export type LoanTypeEntry = {
 export const loanTypes: LoanTypeEntry[] = [
   {
     slug: "owner-occupied",
-    title: "Owner Occupied",
-    description: "Flexible home financing with expert guidance.",
+    title: "Home & Lifestyle",
+    formalName: "Owner Occupied Home Loan",
+    description: "Finance your place to call home.",
     icon: "home",
   },
   {
     slug: "investment-loan",
-    title: "Investment Loan",
-    description: "Smart lending for long-term property growth.",
+    title: "Property Growth",
+    formalName: "Investment Loan",
+    description: "Build and grow your property portfolio.",
     icon: "trendingUp",
   },
   {
     slug: "smsf-home-loan",
-    title: "SMSF Home Loan",
-    description: "Investments through property finance.",
+    title: "Super & Property",
+    formalName: "SMSF Home Loan",
+    description: "Invest in property through your SMSF.",
     icon: "shieldCheck",
   },
   {
     slug: "trust-loan",
-    title: "Trust Loans",
-    description: "Lending solutions for trust structures.",
+    title: "Trust & Entity",
+    formalName: "Trust Loan",
+    description: "Lending for trusts and complex structures.",
     icon: "scale",
   },
   {
     slug: "company-loan",
-    title: "Company Loans",
-    description: "Business designed for sustainable growth.",
+    title: "Company Lending",
+    formalName: "Company Loan",
+    description: "Property and asset finance in your company's name.",
     icon: "briefcase",
   },
   {
     slug: "car-loan",
-    title: "Car Loan",
-    description: "Fast vehicle finance with flexible repayments.",
+    title: "Drive Forward",
+    formalName: "Car Loan",
+    description: "Finance your next vehicle.",
     icon: "car",
   },
   {
     slug: "business-loan",
-    title: "Business Loan",
-    description: "Flexible funding to support business.",
+    title: "Business Capital",
+    formalName: "Business Loan",
+    description: "Funding for your next business move.",
     icon: "handshake",
   },
   {
     slug: "construction-loan",
-    title: "Construction Loan",
-    description: "Stage-by-stage finance for every building project.",
+    title: "Build & Create",
+    formalName: "Construction Loan",
+    description: "Finance your next property project.",
     icon: "crane",
   },
   {
     slug: "commercial-loan",
-    title: "Commercial Loan",
-    description: "Commercial property finance with competitive solutions.",
+    title: "Commercial Property",
+    formalName: "Commercial Loan",
+    description: "Finance for commercial property and opportunities.",
     icon: "building",
   },
   {
     slug: "equipment-loan",
-    title: "Equipment Loan",
-    description: "Finance essential equipment without cash flow strain.",
+    title: "Business Essentials",
+    formalName: "Equipment Loan",
+    description: "Finance the equipment your business needs.",
     icon: "wrench",
   },
 ];

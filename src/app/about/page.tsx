@@ -9,47 +9,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
-// Real Fire Loans team members (confirmed). Fayaz and Rumina's supplied
-// photos weren't usable (Fayaz's carries a different company's name on the
-// desk plate/bookshelf — "Meridian Private Wealth") so they keep the
-// monogram placeholder until real photos are supplied. James, Emily and
-// Sarah's photos are real.
+// Real Fire Loans team members (confirmed). Rumina's supplied photo wasn't
+// usable (it was an AI-generated headshot) so she keeps the monogram
+// placeholder until a real photo is supplied.
 const team = [
   {
-    name: "Fayaz",
-    role: "Founder & Managing Director",
-    tag: "Executive Desk",
-    bio: "15+ years in the industry, guiding complex commercial deals and long-term client relationships from first call to settlement.",
-    email: "fayaz@fireloans.com.au",
-    initial: "F",
+    name: "Rumina",
+    role: "Financial Strategist",
+    tag: "Financial Strategist",
+    bio: "Helping individuals, families and businesses find financing that actually gets them closer to financial independence — honest advice, options matched to your situation, and support through every stage of the process.",
+    email: "rumina@fireloans.com.au",
+    initial: "R",
     photo: null,
-  },
-  {
-    name: "James Wilson",
-    role: "Business Loan Specialist",
-    tag: "Asset Finance",
-    bio: "Focused on business expansion finance, asset financing structures, and working capital facilities for Australian businesses.",
-    email: "james@fireloans.com.au",
-    initial: "J",
-    photo: "/images/james.jpg",
-  },
-  {
-    name: "Emily Carter",
-    role: "Client Relationship Manager",
-    tag: "Client Care",
-    bio: "Keeps communication clear from application to settlement, coordinating every milestone so nothing falls through the cracks.",
-    email: "emily@fireloans.com.au",
-    initial: "E",
-    photo: "/images/Emily.jpg",
-  },
-  {
-    name: "Sarah Mitchell",
-    role: "Senior Mortgage Broker",
-    tag: "SMSF Specialist",
-    bio: "Specialises in investment property portfolios, high-LVR strategies, and SMSF loan structures.",
-    email: "sarah@fireloans.com.au",
-    initial: "S",
-    photo: "/images/Sarah.jpg",
   },
 ];
 
@@ -293,12 +264,12 @@ export default function AboutPage() {
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-wide text-gold-700">Our Team</p>
             <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Meet the people you&apos;ll actually deal with
+              Meet the person you&apos;ll actually deal with
             </h2>
-            <p className="mt-4 text-lg text-ink-soft">Hover a card for a little more about each person.</p>
+            <p className="mt-4 text-lg text-ink-soft">Hover the card for a little more.</p>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid max-w-xs grid-cols-1 gap-6">
             {team.map((member) => (
               <div
                 key={member.name}
