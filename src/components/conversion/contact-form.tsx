@@ -1,46 +1,55 @@
 "use client";
 
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { loanTypes } from "@/content/loan-types";
+import { contactSchema, type ContactFormValues } from "@/lib/contact-schema";
 
 const savingsRanges = ["Under $20,000", "$20,000–$50,000", "$50,000–$100,000", "$100,000+"];
 const loanAmountRanges = ["Under $300,000", "$300,000–$600,000", "$600,000–$1,000,000", "$1,000,000+", "Not sure yet"];
 
-const schema = z.object({
-  fullName: z.string().min(2, "Enter your full name"),
-  email: z.string().email("Enter a valid email"),
-  phone: z.string().min(8, "Enter a valid phone number"),
-  loanType: z.string().min(1, "Select a loan type"),
-  savings: z.string().min(1, "Select a range"),
-  loanAmount: z.string().min(1, "Select a range"),
-  message: z.string().optional(),
-});
-
-type FormValues = z.infer<typeof schema>;
+type FormValues = ContactFormValues;
 
 const fieldClasses =
   "h-12 w-full rounded-lg border border-white/20 bg-white/10 px-4 text-sm text-paper placeholder:text-cream/40 backdrop-blur-md transition-colors focus:border-gold-400/60 focus:outline-none focus:ring-2 focus:ring-gold-400/20 [color-scheme:dark]";
 const labelClasses = "mb-1.5 block text-sm font-semibold text-cream/90";
 
 export function ContactForm() {
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isSubmitSuccessful },
-  } = useForm<FormValues>({ resolver: zodResolver(schema) });
+    formState: { errors, isSubmitting },
+  } = useForm<FormValues>({ resolver: zodResolver(contactSchema) });
 
   async function onSubmit(values: FormValues) {
-    // Not yet connected to a delivery channel (email API / CRM webhook) — wire this
-    // to a real destination before launch, or enquiries submitted here are lost.
-    await new Promise((r) => setTimeout(r, 500));
-    void values;
-    reset();
+    setErrorMessage(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      if (!res.ok) {
+        const data = (await res.json().catch(() => null)) as { error?: string } | null;
+        setErrorMessage(data?.error ?? "Something went wrong. Please call 0478 933 786.");
+        setStatus("error");
+        return;
+      }
+
+      setStatus("success");
+      reset();
+    } catch {
+      setErrorMessage("Something went wrong. Please call 0478 933 786.");
+      setStatus("error");
+    }
   }
 
-  if (isSubmitSuccessful) {
+  if (status === "success") {
     return (
       <div className="flex h-full flex-col items-center justify-center rounded-2xl bg-brand-50 p-8 text-center">
         <span className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-500 text-paper">
@@ -62,6 +71,14 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5" noValidate>
+      {/* Honeypot — off-screen via CSS (not the "hidden" attribute, which some bots skip) and
+          aria-hidden + tabIndex -1 so screen reader and keyboard users never encounter it, while
+          it stays present in the raw DOM for simple bots to find and fill in. */}
+      <div className="absolute -left-[9999px]" aria-hidden="true">
+        <label htmlFor="company">Company</label>
+        <input id="company" type="text" tabIndex={-1} autoComplete="off" {...register("company")} />
+      </div>
+
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
         <div>
           <label className={labelClasses} htmlFor="fullName">
@@ -161,6 +178,11 @@ export function ContactForm() {
       </div>
 
       <div className="flex flex-col gap-3 pt-1">
+        {status === "error" && errorMessage && (
+          <p className="rounded-lg border border-error/30 bg-error/10 px-4 py-2.5 text-sm text-error">
+            {errorMessage}
+          </p>
+        )}
         <button
           type="submit"
           disabled={isSubmitting}

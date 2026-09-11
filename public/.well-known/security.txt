@@ -1,0 +1,4 @@
+Contact: mailto:broker@fireloans.com.au
+Expires: 2027-09-10T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://www.fireloans.com.au/.well-known/security.txt

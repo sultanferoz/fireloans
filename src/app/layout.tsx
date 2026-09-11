@@ -58,6 +58,10 @@ export const metadata: Metadata = {
   },
 };
 
+// No fixed shopfront address is published for Fire Loans, so this deliberately does not use
+// LocalBusiness/PostalAddress/geo coordinates — inventing one would be false structured data
+// (and inconsistent with any real Google Business Profile, which Google penalises). A
+// nationwide broker's correct "geo" signal is areaServed, not a fabricated street address.
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": ["Organization", "FinancialService"],
@@ -65,9 +69,38 @@ const organizationJsonLd = {
   legalName: "Fire Financial Services Pty Ltd",
   url: siteUrl,
   logo: `${siteUrl}/images/logo.png`,
+  image: `${siteUrl}/images/logo.png`,
   telephone: "+61478933786",
   email: "broker@fireloans.com.au",
-  areaServed: "AU",
+  areaServed: { "@type": "Country", name: "Australia" },
+  serviceType: [
+    "Mortgage Broking",
+    "Home Loans",
+    "Investment Property Loans",
+    "SMSF Loans",
+    "Trust Loans",
+    "Business Loans",
+    "Construction Loans",
+    "Commercial Loans",
+    "Equipment Finance",
+    "Car Loans",
+  ],
+  knowsAbout: [
+    "Australian home loans",
+    "Mortgage refinancing",
+    "First home buyer grants",
+    "SMSF property lending",
+    "Investment property finance",
+    "Australian stamp duty",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+61478933786",
+    email: "broker@fireloans.com.au",
+    contactType: "customer service",
+    areaServed: "AU",
+    availableLanguage: ["en"],
+  },
   identifier: [
     { "@type": "PropertyValue", name: "ABN", value: "35 689 635 667" },
     { "@type": "PropertyValue", name: "Credit Representative Number", value: "572433" },
@@ -80,6 +113,12 @@ const websiteJsonLd = {
   "@type": "WebSite",
   name: "Fire Loans",
   url: siteUrl,
+  inLanguage: "en-AU",
+  potentialAction: {
+    "@type": "SearchAction",
+    target: { "@type": "EntryPoint", urlTemplate: `${siteUrl}/articles?category={search_term_string}` },
+    "query-input": "required name=search_term_string",
+  },
 };
 
 export const viewport: Viewport = {

@@ -27,8 +27,9 @@ export async function generateMetadata({
   const { slug } = await params;
   const loan = getLoanType(slug);
   const detail = getLoanDetail(slug);
+  const pageTitle = loan ? (loan.title === loan.formalName ? loan.title : `${loan.title} — ${loan.formalName}`) : "Coming Soon";
   return {
-    title: loan ? `${loan.title} — ${loan.formalName}` : "Coming Soon",
+    title: pageTitle,
     description: detail?.subhead ?? loan?.description,
     alternates: { canonical: `/loans/${slug}` },
   };
@@ -92,7 +93,7 @@ export default async function LoanTypePage({
       <JsonLd data={[faqJsonLd, breadcrumbJsonLd]} />
       <LoanHero
         icon={loan.icon}
-        category={`${loan.title} · ${loan.formalName}`}
+        category={loan.title === loan.formalName ? loan.title : `${loan.title} · ${loan.formalName}`}
         title={loan.title}
         headline={detail.headline}
         subhead={detail.subhead}
@@ -127,7 +128,7 @@ export default async function LoanTypePage({
 
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <LoanCta
-          title={`Ready to explore ${loan.title}?`}
+          title={`Ready to explore ${loan.formalName}?`}
           calculatorHref={detail.calculatorHref}
           calculatorLabel={detail.calculatorLabel}
           storyHref={storyHref}
