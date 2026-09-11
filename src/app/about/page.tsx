@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 const team = [
   {
     name: "Rumina",
-    role: "Financial Strategist",
-    tag: "Financial Strategist",
+    role: "Mortgage Broker",
+    tag: "Mortgage Broker",
     bio: "Helping individuals, families and businesses find financing that actually gets them closer to financial independence — honest advice, options matched to your situation, and support through every stage of the process.",
     email: "rumina@fireloans.com.au",
     initial: "R",
@@ -116,7 +116,7 @@ export default function AboutPage() {
               <h1 className="mt-5 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
                 Hello, my name is <span className="text-gold-700 italic">Rumina</span>
               </h1>
-              <p className="mt-2 text-lg font-semibold text-pine-700">Financial Strategist, Fire Loans</p>
+              <p className="mt-2 text-lg font-semibold text-pine-700">Mortgage Broker, Fire Loans</p>
 
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
                 I&apos;m passionate about helping individuals, families and businesses find the right

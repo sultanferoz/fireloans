@@ -1,9 +1,19 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useState, type FocusEvent, type ReactNode } from "react";
 
 const inputClasses =
   "h-12 w-full rounded-xl border border-border bg-cream-muted px-4 text-sm font-semibold text-ink focus:border-pine-700 focus:outline-none focus:ring-2 focus:ring-pine-700/10";
+
+/** Select the full value on focus, so typing replaces a pre-filled "0" instead of appending to it. */
+function selectAllOnFocus(e: FocusEvent<HTMLInputElement>) {
+  e.target.select();
+}
+
+function formatWithCommas(digitsOnly: string): string {
+  if (!digitsOnly) return "";
+  return Number(digitsOnly).toLocaleString("en-AU");
+}
 
 export function FieldGroup({ label, children, hint }: { label: string; children: ReactNode; hint?: string }) {
   return (
@@ -17,6 +27,7 @@ export function FieldGroup({ label, children, hint }: { label: string; children:
   );
 }
 
+/** Currency input with a live comma-formatted display (e.g. 100000 -> "100,000") over a plain number value. */
 export function CurrencyInput({
   value,
   onChange,
@@ -26,17 +37,30 @@ export function CurrencyInput({
   onChange: (v: number) => void;
   placeholder?: string;
 }) {
+  const [display, setDisplay] = useState(() => formatWithCommas(String(value || "")));
+  // "Adjust state when a prop changes" pattern (react.dev) — a render-phase setState so an
+  // external change (e.g. a form reset) is reflected immediately, without an effect round-trip.
+  const [prevValue, setPrevValue] = useState(value);
+  if (value !== prevValue) {
+    setPrevValue(value);
+    setDisplay(formatWithCommas(String(value || "")));
+  }
+
   return (
     <div className="relative">
       <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft">$</span>
       <input
-        type="number"
+        type="text"
         inputMode="decimal"
-        min={0}
         className={`${inputClasses} pl-7`}
-        value={Number.isFinite(value) ? value : ""}
+        value={display}
         placeholder={placeholder}
-        onChange={(e) => onChange(e.target.value === "" ? 0 : Number(e.target.value))}
+        onFocus={selectAllOnFocus}
+        onChange={(e) => {
+          const digitsOnly = e.target.value.replace(/[^\d]/g, "");
+          setDisplay(formatWithCommas(digitsOnly));
+          onChange(digitsOnly === "" ? 0 : Number(digitsOnly));
+        }}
       />
     </div>
   );
@@ -52,6 +76,7 @@ export function PercentInput({ value, onChange, step = 0.01 }: { value: number; 
         step={step}
         className={`${inputClasses} pr-9`}
         value={Number.isFinite(value) ? value : ""}
+        onFocus={selectAllOnFocus}
         onChange={(e) => onChange(e.target.value === "" ? 0 : Number(e.target.value))}
       />
       <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-ink-soft">%</span>
@@ -81,6 +106,7 @@ export function NumberInput({
         max={max}
         className={`${inputClasses} ${suffix ? "pr-16" : ""}`}
         value={Number.isFinite(value) ? value : ""}
+        onFocus={selectAllOnFocus}
         onChange={(e) => onChange(e.target.value === "" ? 0 : Number(e.target.value))}
       />
       {suffix && (
@@ -101,7 +127,7 @@ const FREQUENCY_OPTIONS = [
 
 export type FieldFrequency = (typeof FREQUENCY_OPTIONS)[number]["value"];
 
-/** A currency amount paired with a weekly/fortnightly/monthly/annual frequency selector. */
+/** A currency amount (comma-formatted as you type) paired with a frequency selector. */
 export function CurrencyFrequencyInput({
   value,
   onChange,
@@ -113,17 +139,28 @@ export function CurrencyFrequencyInput({
   frequency: FieldFrequency;
   onFrequencyChange: (f: FieldFrequency) => void;
 }) {
+  const [display, setDisplay] = useState(() => formatWithCommas(String(value || "")));
+  const [prevValue, setPrevValue] = useState(value);
+  if (value !== prevValue) {
+    setPrevValue(value);
+    setDisplay(formatWithCommas(String(value || "")));
+  }
+
   return (
     <div className="flex gap-2">
       <div className="relative flex-1">
         <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft">$</span>
         <input
-          type="number"
+          type="text"
           inputMode="decimal"
-          min={0}
           className={`${inputClasses} pl-7`}
-          value={Number.isFinite(value) ? value : ""}
-          onChange={(e) => onChange(e.target.value === "" ? 0 : Number(e.target.value))}
+          value={display}
+          onFocus={selectAllOnFocus}
+          onChange={(e) => {
+            const digitsOnly = e.target.value.replace(/[^\d]/g, "");
+            setDisplay(formatWithCommas(digitsOnly));
+            onChange(digitsOnly === "" ? 0 : Number(digitsOnly));
+          }}
         />
       </div>
       <select

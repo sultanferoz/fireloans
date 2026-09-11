@@ -26,7 +26,7 @@ const DEFAULT_INPUT: BorrowingPowerInput = {
   isJoint: false,
   dependents: 0,
 
-  salary1: 96000,
+  salary1: 100000,
   salary1Frequency: "annually",
   overtimeBonus1: 0,
   overtimeBonus1Frequency: "annually",
@@ -39,7 +39,7 @@ const DEFAULT_INPUT: BorrowingPowerInput = {
   nonTaxableIncome: 0,
   nonTaxableIncomeFrequency: "annually",
 
-  generalLivingExpenses: 2500,
+  generalLivingExpenses: 2000,
   generalLivingExpensesFrequency: "monthly",
   additionalLivingExpenses: 0,
   additionalLivingExpensesFrequency: "monthly",
@@ -55,11 +55,11 @@ const DEFAULT_INPUT: BorrowingPowerInput = {
   hecsRepaymentsFrequency: "monthly",
   otherCommitments: 0,
   otherCommitmentsFrequency: "monthly",
-  totalCreditCardLimits: 5000,
+  totalCreditCardLimits: 0,
   bnplLimit: 0,
   bnplCurrentMonthlyRepayment: 0,
 
-  interestRatePct: 5.5,
+  interestRatePct: 6.09,
   rateType: "variable",
   fixedTermYears: 3,
   loanTermYears: 30,
