@@ -195,7 +195,7 @@ export function BorrowingPowerCalculator() {
               )}
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <FieldGroup label="Other income" hint="Rental etc. — assessed at 80%">
+                <FieldGroup label="Other income" hint="Rental etc.   assessed at 80%">
                   <CurrencyFrequencyInput
                     value={input.otherIncome}
                     onChange={(v) => set("otherIncome", v)}
@@ -250,7 +250,7 @@ export function BorrowingPowerCalculator() {
             <h2 className="font-display text-xl font-semibold text-ink">Existing debts</h2>
             <p className="mt-1 text-xs text-ink-soft">
               Leave a category blank if it doesn&apos;t apply. Each is assessed at the greater of your
-              actual repayment or a recalculated benchmark at the buffered rate — same as a real lender.
+              actual repayment or a recalculated benchmark at the buffered rate   same as a real lender.
             </p>
             <div className="mt-4 flex flex-col gap-3">
               <DebtAccountFields
@@ -316,7 +316,7 @@ export function BorrowingPowerCalculator() {
                 </FieldGroup>
               </div>
               {input.bnplLimit > 0 && (
-                <FieldGroup label="Buy Now Pay Later — current monthly repayment" hint="Optional">
+                <FieldGroup label="Buy Now Pay Later   current monthly repayment" hint="Optional">
                   <CurrencyInput
                     value={input.bnplCurrentMonthlyRepayment}
                     onChange={(v) => set("bnplCurrentMonthlyRepayment", v)}
@@ -429,10 +429,10 @@ export function BorrowingPowerCalculator() {
           </div>
           <p className="text-xs text-cream/50">
             This mirrors the real serviceability methodology published in a major Australian lender&apos;s
-            broker calculator — real tax brackets, a genuine household expenditure benchmark, a rate
+            broker calculator   real tax brackets, a genuine household expenditure benchmark, a rate
             buffer with a 5.3% floor, existing debts assessed at the greater of actual or recalculated
             repayment, and a $500/month minimum surplus before a loan is treated as an easy pass. It is
-            still a general estimate, not a credit decision — actual outcomes vary by lender and your
+            still a general estimate, not a credit decision   actual outcomes vary by lender and your
             complete financial position.
           </p>
         </div>

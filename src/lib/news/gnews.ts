@@ -11,7 +11,7 @@ type GNewsArticle = {
 };
 
 /**
- * Optional secondary discovery source (https://gnews.io/api/v4). Server-only — reads
+ * Optional secondary discovery source (https://gnews.io/api/v4). Server-only   reads
  * GNEWS_API_KEY. Not used as a primary production source; only queried if a key is set.
  */
 export async function fetchGNews(): Promise<{ items: NewsItem[]; status: SourceStatus }> {

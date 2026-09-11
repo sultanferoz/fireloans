@@ -3,6 +3,7 @@ import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteLoader } from "@/components/layout/site-loader";
+import { FloatingCta } from "@/components/conversion/floating-cta";
 import { JsonLd } from "@/components/seo/json-ld";
 import "./globals.css";
 
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
 };
 
 // No fixed shopfront address is published for Fire Loans, so this deliberately does not use
-// LocalBusiness/PostalAddress/geo coordinates — inventing one would be false structured data
+// LocalBusiness/PostalAddress/geo coordinates   inventing one would be false structured data
 // (and inconsistent with any real Google Business Profile, which Google penalises). A
 // nationwide broker's correct "geo" signal is areaServed, not a fabricated street address.
 const organizationJsonLd = {
@@ -131,12 +132,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en-AU"
       className={`${fontDisplay.variable} ${fontBody.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-cream text-ink font-sans">
+      <body className="min-h-full flex flex-col bg-cream text-ink font-sans pb-[76px] sm:pb-0">
         <JsonLd data={[organizationJsonLd, websiteJsonLd]} />
         <SiteLoader />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <FloatingCta />
       </body>
     </html>
   );

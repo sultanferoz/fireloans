@@ -23,7 +23,7 @@ export function TrustSources({ sourceReport }: { sourceReport: SourceStatus[] })
         <p className="mt-6 max-w-2xl text-xs leading-relaxed text-ink-soft/80">
           Fire Loans aggregates publicly published headlines from the sources above for
           informational purposes. Fire Loans is not affiliated with, endorsed by, or
-          representing any of these organisations — all original reporting belongs to the
+          representing any of these organisations   all original reporting belongs to the
           named source, and each story links directly back to it.
         </p>
       </div>

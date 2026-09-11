@@ -12,7 +12,7 @@ export const personas: Persona[] = [
     label: "First Home Buyer",
     headline: "Owning sooner than you think",
     description:
-      "Grants, LMI, deposit options and a lender panel matched to your real borrowing position — not just the first bank you ask.",
+      "Grants, LMI, deposit options and a lender panel matched to your real borrowing position   not just the first bank you ask.",
     icon: "home",
   },
   {

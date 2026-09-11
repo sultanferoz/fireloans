@@ -18,7 +18,7 @@ const columns = [
   },
 ];
 
-// Self-authored dot-grid texture (data URI) — deliberately not a stock photo,
+// Self-authored dot-grid texture (data URI)   deliberately not a stock photo,
 // keeps the dark footer premium without relying on an external image asset.
 const FOOTER_PATTERN =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='2' cy='2' r='1.5' fill='%23D8BD85' fill-opacity='0.18'/%3E%3C/svg%3E";
@@ -41,7 +41,7 @@ export function SiteFooter() {
             </span>
             <p className="mt-4 max-w-sm text-sm text-cream/70">
               Helping Australians achieve financial independence through the right loan
-              structure — not just the next application.
+              structure   not just the next application.
             </p>
             <div className="mt-5 space-y-1.5 text-sm text-cream/80">
               <a href="tel:0478933786" className="flex items-center gap-2 hover:text-paper">

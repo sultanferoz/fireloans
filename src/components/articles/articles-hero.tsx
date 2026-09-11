@@ -1,6 +1,21 @@
+import Image from "next/image";
+
 export function ArticlesHero() {
   return (
     <section className="relative overflow-hidden bg-pine-950 text-cream">
+      <Image
+        src="/images/articles.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover opacity-75 contrast-125 grayscale"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-pine-700 mix-blend-color" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-pine-950/85 via-pine-950/60 to-pine-950"
+        aria-hidden="true"
+      />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
         aria-hidden="true"

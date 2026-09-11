@@ -65,7 +65,7 @@ export function extractLink(block: string): string | undefined {
 /**
  * WordPress media URLs commonly end in a generated crop size, e.g.
  * `banner-e12345-150x150.jpg`. The un-cropped original usually lives at the same
- * path with that suffix removed — worth trying for a sharper image than the tiny
+ * path with that suffix removed   worth trying for a sharper image than the tiny
  * thumbnail feeds tend to enclose.
  */
 export function upgradeWordPressThumbnail(url: string): string {

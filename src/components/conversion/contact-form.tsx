@@ -57,7 +57,7 @@ export function ContactForm() {
             <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </span>
-        <h3 className="mt-5 font-display text-2xl font-semibold text-ink">Thanks — got it.</h3>
+        <h3 className="mt-5 font-display text-2xl font-semibold text-ink">Thanks   got it.</h3>
         <p className="mt-2 text-ink-soft">
           A broker will review this and reach out within one business day. Urgent? Call{" "}
           <a href="tel:0478933786" className="font-semibold text-brand-600">
@@ -71,7 +71,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5" noValidate>
-      {/* Honeypot — off-screen via CSS (not the "hidden" attribute, which some bots skip) and
+      {/* Honeypot   off-screen via CSS (not the "hidden" attribute, which some bots skip) and
           aria-hidden + tabIndex -1 so screen reader and keyboard users never encounter it, while
           it stays present in the raw DOM for simple bots to find and fill in. */}
       <div className="absolute -left-[9999px]" aria-hidden="true">

@@ -9,7 +9,7 @@ export const contactSchema = z.object({
   savings: z.string().max(100).optional().or(z.literal("")),
   loanAmount: z.string().max(100).optional().or(z.literal("")),
   message: z.string().max(4000).optional().or(z.literal("")),
-  // Honeypot — real users never fill this in; a bot usually does. Deliberately NOT
+  // Honeypot   real users never fill this in; a bot usually does. Deliberately NOT
   // constrained to empty here: validation must pass either way so a filled-in value
   // reaches the route handler, which is what decides to silently fake success rather
   // than reveal to the bot that this field is what gave it away.

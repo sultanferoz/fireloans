@@ -29,8 +29,8 @@ export default function TermsPage() {
       <ReadingProgressBar />
       <LegalHero
         eyebrow="Terms of Use"
-        title="The ground rules for this site"
-        intro="Kept deliberately short — you shouldn't need a law degree to know what you're agreeing to by using a website."
+        title="Terms and Conditions"
+        intro="Kept deliberately short   you shouldn't need a law degree to know what you're agreeing to by using a website."
         reference="FIN-TOU-2026"
         updated="September 2026"
         tldr="Short version: this site is general information, calculators are estimates, and nothing here guarantees loan approval."
@@ -46,7 +46,7 @@ export default function TermsPage() {
         >
           <LegalProse>
             <p>
-              Everything on this site — calculators, guides and Fire Stories included — is general in
+              Everything on this site   calculators, guides and Fire Stories included   is general in
               nature. It doesn&apos;t account for your personal circumstances and isn&apos;t financial or
               credit advice.
             </p>
@@ -58,7 +58,7 @@ export default function TermsPage() {
           <LegalProse>
             <p>
               Every calculator on this site produces an estimate based on the figures you enter and standard
-              lending assumptions. Always confirm your real numbers with a broker before acting on them —
+              lending assumptions. Always confirm your real numbers with a broker before acting on them  
               actual serviceability, rates and fees depend on a full lender assessment.
             </p>
           </LegalProse>
@@ -84,7 +84,7 @@ export default function TermsPage() {
               {
                 term: "No guarantees",
                 detail:
-                  "Lending is always subject to lender approval, valuation and credit assessment — we can't guarantee a specific rate, approval, or loan amount.",
+                  "Lending is always subject to lender approval, valuation and credit assessment   we can't guarantee a specific rate, approval, or loan amount.",
               },
               {
                 term: "Acceptable use",
@@ -109,7 +109,7 @@ export default function TermsPage() {
             <p>
               These terms are governed by the laws of Australia, and any dispute is subject to the
               jurisdiction of Australian courts. We may update these terms as our services or the law
-              change — the &quot;effective&quot; date at the top of this page always reflects the current
+              change   the &quot;effective&quot; date at the top of this page always reflects the current
               version.
             </p>
           </LegalProse>

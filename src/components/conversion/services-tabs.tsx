@@ -63,7 +63,7 @@ const tabs: ServiceTab[] = [
     microLabel: "Smart Entry",
     heading: "Buying, structured around your real position",
     description:
-      "Whether it's your first home, your next home, or your next investment, we assess your full financial position before recommending a lender — not just the first rate you're offered.",
+      "Whether it's your first home, your next home, or your next investment, we assess your full financial position before recommending a lender   not just the first rate you're offered.",
     bullets: [
       "Pre-approval before you start shopping",
       "First home buyer grants, schemes and LMI guidance",
@@ -106,7 +106,7 @@ const tabs: ServiceTab[] = [
     microLabel: "Better Terms",
     heading: "Refinancing that's actually worth the switch",
     description:
-      "We check what a better rate or structure really saves you — after fees, after cashback, after the fine print — before you make a move.",
+      "We check what a better rate or structure really saves you   after fees, after cashback, after the fine print   before you make a move.",
     bullets: [
       "Rate and cashback comparison across lenders",
       "Debt consolidation and equity release",
@@ -154,7 +154,7 @@ const tabs: ServiceTab[] = [
     microLabel: "Structured Growth",
     heading: "Finance built around your business structure",
     description:
-      "Commercial property and partnership finance assessed against your business and personal position together — not in isolation.",
+      "Commercial property and partnership finance assessed against your business and personal position together   not in isolation.",
     bullets: [
       "Commercial property purchase and refinance",
       "Partnership and trust lending structures",
@@ -202,7 +202,7 @@ const tabs: ServiceTab[] = [
     microLabel: "Capital Velocity",
     heading: "Keep the equipment moving, not your cash flow",
     description:
-      "Finance for the vehicles, equipment and machinery your business runs on — approved fast, without draining working capital.",
+      "Finance for the vehicles, equipment and machinery your business runs on   approved fast, without draining working capital.",
     bullets: [
       "Vehicle and equipment finance",
       "Chattel mortgage, hire purchase and leasing options",

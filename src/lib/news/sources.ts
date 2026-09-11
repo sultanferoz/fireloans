@@ -15,7 +15,7 @@ export type FeedSource = {
 /**
  * Every feed below was live-tested (Sep 2026) by fetching it directly and confirming a
  * 200 response with parseable items. Feeds that returned 403/404/blocked at test time
- * (APRA, ASIC, ABS, FBAA, big-four banks, several broker trade titles) are not included —
+ * (APRA, ASIC, ABS, FBAA, big-four banks, several broker trade titles) are not included  
  * see docs/news-articles-integration.md and the build report for the full pass/fail list.
  */
 export const FEED_SOURCES: FeedSource[] = [
@@ -85,7 +85,7 @@ export const FEED_SOURCES: FeedSource[] = [
   },
 ];
 
-/** Feeds we attempted but which are not publicly reachable — kept for transparency/reporting. */
+/** Feeds we attempted but which are not publicly reachable   kept for transparency/reporting. */
 export const KNOWN_UNAVAILABLE_SOURCES = [
   "APRA",
   "ASIC",

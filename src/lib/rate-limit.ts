@@ -3,7 +3,7 @@
  *
  * This protects a single running server process. On serverless platforms
  * (Vercel functions) each instance/region has its own memory, so under real
- * concurrent load or a distributed attempt this alone won't fully hold —
+ * concurrent load or a distributed attempt this alone won't fully hold  
  * for production-grade protection, put this behind a shared store (Upstash
  * Redis is the standard pairing for Vercel) or the platform's own edge rate
  * limiting / WAF. This is still a genuine guard against a single spammy

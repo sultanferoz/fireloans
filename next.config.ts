@@ -3,10 +3,10 @@ import path from "node:path";
 
 // News cards hotlink real editorial images from many different publishers (RBA, Australian
 // Broker, MFAA, realestate.com.au, Property Update, etc.) whose exact CDN hosts vary and
-// aren't enumerable in advance — so img-src is scoped to https:/data: rather than a fixed
+// aren't enumerable in advance   so img-src is scoped to https:/data: rather than a fixed
 // allowlist. Everything else is scoped to 'self'.
 //
-// 'unsafe-eval' is added to script-src ONLY outside production — React's development mode
+// 'unsafe-eval' is added to script-src ONLY outside production   React's development mode
 // uses eval() for debugging features (component stack reconstruction etc.) and refuses to
 // run without it; React never calls eval() in a production build, so prod stays strict.
 const isDev = process.env.NODE_ENV !== "production";

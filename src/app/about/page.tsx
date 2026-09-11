@@ -5,26 +5,24 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Fire Loans — an Australian mortgage broker structuring loans around your financial independence, not just the next application.",
+    "Meet Fire Loans   an Australian mortgage broker structuring loans around your financial independence, not just the next application.",
   alternates: { canonical: "/about" },
 };
 
-// Real Fire Loans team members (confirmed). Rumina's supplied photo wasn't
-// usable (it was an AI-generated headshot) so she keeps the monogram
-// placeholder until a real photo is supplied.
+// Real Fire Loans team members (confirmed).
 const team = [
   {
-    name: "Rumina",
+    name: "Rumina Davlatmirova",
     role: "Mortgage Broker",
     tag: "Mortgage Broker",
-    bio: "Helping individuals, families and businesses find financing that actually gets them closer to financial independence — honest advice, options matched to your situation, and support through every stage of the process.",
+    bio: "Helping individuals, families and businesses find financing that actually gets them closer to financial independence   honest advice, options matched to your situation, and support through every stage of the process.",
     email: "rumina@fireloans.com.au",
     initial: "R",
-    photo: null,
+    photo: "/images/rumina.jpg",
   },
 ];
 
-// Premium illustrated placeholder — used until real photos exist for Fayaz
+// Premium illustrated placeholder   used until real photos exist for Fayaz
 // and Rumina. Deliberately not a fake "photo": a crafted badge (ring +
 // silhouette + monogram) so it reads as an intentional placeholder, not a
 // deceptive stand-in for a real portrait.
@@ -65,25 +63,25 @@ const pillars = [
   {
     title: "Straight Advice",
     description:
-      "We tell you what's actually achievable before we tell you what sounds good — clear guidance, not a sales pitch.",
+      "We tell you what's actually achievable before we tell you what sounds good   clear guidance, not a sales pitch.",
     icon: "M12 3a9 9 0 1 0 5.5 16.1V21l3-1.5-1-2A9 9 0 0 0 12 3Zm-2 9h4M12 9v6",
   },
   {
     title: "Every Loan Type, One Broker",
     description:
-      "Home, investment, SMSF, trust, business, construction, commercial and equipment finance — structured around your position, not a single product.",
+      "Home, investment, SMSF, trust, business, construction, commercial and equipment finance   structured around your position, not a single product.",
     icon: "M4 21V8l8-5 8 5v13M9 21v-7h6v7",
   },
   {
     title: "Fast, Real Answers",
     description:
-      "A lender panel and a process built to get you a genuine answer quickly — not a runaround.",
+      "A lender panel and a process built to get you a genuine answer quickly   not a runaround.",
     icon: "M13 2 4 14h6l-1 8 9-12h-6l1-8Z",
   },
   {
     title: "Support to Settlement",
     description:
-      "From your first call to the day you get the keys (or the funds) — the same broker, the whole way through.",
+      "From your first call to the day you get the keys (or the funds)   the same broker, the whole way through.",
     icon: "M12 21c-4-3-7-6.5-7-10a7 7 0 0 1 14 0c0 3.5-3 7-7 10Z M12 8v4l2.5 1.5",
   },
 ];
@@ -120,7 +118,7 @@ export default function AboutPage() {
 
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink-soft">
                 I&apos;m passionate about helping individuals, families and businesses find the right
-                financing to actually get closer to financial independence — not just a settled
+                financing to actually get closer to financial independence   not just a settled
                 loan. My focus is honest advice, options genuinely matched to your situation, and
                 being there through every stage of the process. Trust and transparency come first;
                 everything else follows from that.
@@ -159,14 +157,54 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Replace with a real photo of Rumina once one is supplied */}
             <div className="lg:col-span-5">
-              <div className="relative mx-auto aspect-square w-full max-w-[380px] overflow-hidden rounded-3xl shadow-xl">
-                <BrandAvatar initial="R" size="hero" />
-                <span className="absolute bottom-4 left-4 right-4 rounded-xl bg-paper/95 px-4 py-3 text-center text-sm text-ink-soft backdrop-blur">
-                  Photo of Rumina coming soon
+               {team.map((member) => (
+              <div
+                key={member.name}
+                className="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-pine-900 shadow-md transition-shadow duration-300 hover:shadow-2xl hover:shadow-ink/20"
+              >
+                {member.photo ? (
+                  <Image
+                    src={member.photo}
+                    alt={member.name}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  // Replace with a real photo of Fayaz once one is supplied
+                  <BrandAvatar initial={member.initial} />
+                )}
+
+                {/* Always-on base gradient so text stays legible even without hover */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
+
+                <span className="absolute left-3 top-3 rounded-full bg-paper/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-pine-900 backdrop-blur">
+                  {member.tag}
                 </span>
+
+                {/* Name + role always visible; bio + contact link reveal on hover/focus */}
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <h3 className="font-display text-lg font-semibold text-paper">{member.name}</h3>
+                  <p className="text-sm font-semibold text-gold-400">{member.role}</p>
+
+                  <div className="grid grid-rows-[0fr] transition-all duration-300 ease-out group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr]">
+                    <div className="overflow-hidden">
+                      <p className="mt-2 text-sm leading-relaxed text-cream/85">{member.bio}</p>
+                      <a
+                        href={`mailto:${member.email}`}
+                        className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-paper hover:gap-2 transition-all"
+                      >
+                        Contact {member.name.split(" ")[0]}
+                        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                          <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
+            ))}
             </div>
           </div>
         </div>
@@ -230,7 +268,7 @@ export default function AboutPage() {
                 </h2>
                 <p className="mt-4 text-cream/75">
                   We&apos;re committed to helping individuals and businesses achieve financial
-                  independence with confidence — personalised guidance, real options, and a
+                  independence with confidence   personalised guidance, real options, and a
                   process that doesn&apos;t waste your time.
                 </p>
               </div>
@@ -238,7 +276,7 @@ export default function AboutPage() {
                 {[
                   { title: "Whole-of-market comparison", desc: "We compare across our lender panel, not just one bank's rate card." },
                   { title: "One point of contact", desc: "You deal with a person, not a call centre queue." },
-                  { title: "No cost to you", desc: "We're paid by the lender on settlement — talking to us costs nothing." },
+                  { title: "No cost to you", desc: "We're paid by the lender on settlement   talking to us costs nothing." },
                 ].map((item) => (
                   <div key={item.title} className="flex items-start gap-3 rounded-xl bg-white/5 p-4">
                     <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold-400 text-pine-950">
@@ -258,68 +296,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Team */}
-      <section className="bg-cream-muted/50 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <p className="text-sm font-semibold uppercase tracking-wide text-gold-700">Our Team</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
-              Meet the person you&apos;ll actually deal with
-            </h2>
-            <p className="mt-4 text-lg text-ink-soft">Hover the card for a little more.</p>
-          </div>
-
-          <div className="mt-10 grid max-w-xs grid-cols-1 gap-6">
-            {team.map((member) => (
-              <div
-                key={member.name}
-                className="group relative aspect-[3/4] overflow-hidden rounded-2xl bg-pine-900 shadow-md transition-shadow duration-300 hover:shadow-2xl hover:shadow-ink/20"
-              >
-                {member.photo ? (
-                  <Image
-                    src={member.photo}
-                    alt={member.name}
-                    fill
-                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  />
-                ) : (
-                  // Replace with a real photo of Fayaz once one is supplied
-                  <BrandAvatar initial={member.initial} />
-                )}
-
-                {/* Always-on base gradient so text stays legible even without hover */}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
-
-                <span className="absolute left-3 top-3 rounded-full bg-paper/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-pine-900 backdrop-blur">
-                  {member.tag}
-                </span>
-
-                {/* Name + role always visible; bio + contact link reveal on hover/focus */}
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <h3 className="font-display text-lg font-semibold text-paper">{member.name}</h3>
-                  <p className="text-sm font-semibold text-gold-400">{member.role}</p>
-
-                  <div className="grid grid-rows-[0fr] transition-all duration-300 ease-out group-hover:grid-rows-[1fr] group-focus-within:grid-rows-[1fr]">
-                    <div className="overflow-hidden">
-                      <p className="mt-2 text-sm leading-relaxed text-cream/85">{member.bio}</p>
-                      <a
-                        href={`mailto:${member.email}`}
-                        className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-paper hover:gap-2 transition-all"
-                      >
-                        Contact {member.name.split(" ")[0]}
-                        <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={2.5}>
-                          <path d="M5 12h14M13 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+     
     </div>
   );
 }

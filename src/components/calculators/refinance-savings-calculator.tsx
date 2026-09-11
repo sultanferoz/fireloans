@@ -17,14 +17,14 @@ export function RefinanceSavingsCalculator() {
   const [loanAmount, setLoanAmount] = useState(500000);
   const [loanTerm, setLoanTerm] = useState(30);
 
-  const [currentRate, setCurrentRate] = useState(6.0);
+  const [currentRate, setCurrentRate] = useState(6.09);
   const [currentFee, setCurrentFee] = useState(15);
 
   const [newUpfrontFee, setNewUpfrontFee] = useState(300);
   const [newOngoingFee, setNewOngoingFee] = useState(0);
-  const [introRate, setIntroRate] = useState(5.2);
+  const [introRate, setIntroRate] = useState(6.09);
   const [introTermMonths, setIntroTermMonths] = useState(12);
-  const [newOngoingRate, setNewOngoingRate] = useState(5.6);
+  const [newOngoingRate, setNewOngoingRate] = useState(6.09);
 
   const result = useMemo(() => {
     const totalMonths = loanTerm * 12;

@@ -25,7 +25,7 @@ const slides: Slide[] = [
     slug: "second-opinion",
     title: "Rejected by one lender. We looked at the bigger picture.",
     excerpt:
-      "One \"no\" isn't a verdict — it's one lender's policy on one day. A second look found the lender who said yes.",
+      "One \"no\" isn't a verdict   it's one lender's policy on one day. A second look found the lender who said yes.",
     tag: "Second Opinion",
   },
   {
@@ -33,13 +33,13 @@ const slides: Slide[] = [
     slug: "construction-loan",
     title: "From empty block to family home.",
     excerpt:
-      "Financing planned around the build schedule, not against it — so the money kept up with the site.",
+      "Financing planned around the build schedule, not against it   so the money kept up with the site.",
     tag: "Construction Loan",
   },
   {
     number: "04",
     slug: "car-loan",
-    title: "The tradie's car wasn't a luxury—it was his livelihood.",
+    title: "The tradie's car wasn't a luxury it was his livelihood.",
     excerpt:
       "Every breakdown meant lost jobs. Finance that protected cash flow got him back on the road, and back to work.",
     tag: "Car Loan",

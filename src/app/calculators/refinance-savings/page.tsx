@@ -12,7 +12,7 @@ export default function RefinanceSavingsPage() {
   return (
     <CalculatorLayout
       title="Refinance Savings Calculator"
-      description="Compare your current loan against a new offer — including intro rates, fees and the real ongoing rate."
+      description="Compare your current loan against a new offer   including intro rates, fees and the real ongoing rate."
     >
       <RefinanceSavingsCalculator />
     </CalculatorLayout>

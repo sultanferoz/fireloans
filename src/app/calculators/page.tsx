@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Calculators",
   description:
-    "Free Australian mortgage calculators — borrowing power, loan repayments, stamp duty and refinance savings — from Fire Loans.",
+    "Free Australian mortgage calculators   borrowing power, loan repayments, stamp duty and refinance savings   from Fire Loans.",
   alternates: { canonical: "/calculators" },
 };
 
@@ -45,7 +45,7 @@ export default function CalculatorsPage() {
             Get real numbers before you talk to anyone
           </h1>
           <p className="mt-4 text-lg leading-relaxed text-ink-soft">
-            Four free tools to help you plan — no sign-up required. When you&apos;re ready for a
+            Four free tools to help you plan   no sign-up required. When you&apos;re ready for a
             proper assessment, a broker can take it from here.
           </p>
         </div>

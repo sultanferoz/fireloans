@@ -38,7 +38,7 @@ export function CurrencyInput({
   placeholder?: string;
 }) {
   const [display, setDisplay] = useState(() => formatWithCommas(String(value || "")));
-  // "Adjust state when a prop changes" pattern (react.dev) — a render-phase setState so an
+  // "Adjust state when a prop changes" pattern (react.dev)   a render-phase setState so an
   // external change (e.g. a form reset) is reflected immediately, without an effect round-trip.
   const [prevValue, setPrevValue] = useState(value);
   if (value !== prevValue) {

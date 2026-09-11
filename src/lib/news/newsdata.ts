@@ -13,8 +13,8 @@ type NewsDataArticle = {
 
 /**
  * Secondary discovery source per NewsData.io (https://newsdata.io/documentation).
- * Server-only — reads NEWSDATA_API_KEY, never NEXT_PUBLIC_*. No-ops if unconfigured.
- * NewsData's free tier is delayed, not real-time — the UI must never call this "real-time".
+ * Server-only   reads NEWSDATA_API_KEY, never NEXT_PUBLIC_*. No-ops if unconfigured.
+ * NewsData's free tier is delayed, not real-time   the UI must never call this "real-time".
  */
 export async function fetchNewsData(): Promise<{ items: NewsItem[]; status: SourceStatus }> {
   const apiKey = process.env.NEWSDATA_API_KEY;

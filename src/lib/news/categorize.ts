@@ -1,6 +1,6 @@
 import type { NewsCategory } from "./types";
 
-/** Checked in order — first match wins. Keep specific institutional/topic categories before generic ones. */
+/** Checked in order   first match wins. Keep specific institutional/topic categories before generic ones. */
 const CATEGORY_RULES: { category: NewsCategory; keywords: RegExp }[] = [
   { category: "RBA", keywords: /\brba\b|reserve bank of australia|cash rate/i },
   { category: "APRA", keywords: /\bapra\b|prudential regulation/i },

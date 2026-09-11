@@ -12,7 +12,7 @@ export default function BorrowingPowerPage() {
   return (
     <CalculatorLayout
       title="Borrowing Power Calculator"
-      description="A real first answer before you talk to anyone — based on your income, expenses and existing commitments."
+      description="A real first answer before you talk to anyone   based on your income, expenses and existing commitments."
     >
       <BorrowingPowerCalculator />
     </CalculatorLayout>

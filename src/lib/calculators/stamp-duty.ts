@@ -1,7 +1,7 @@
 /**
  * Stamp duty rates for all 8 AU states/territories, sourced by extracting the
  * "Rates and Thresholds" disclosure directly from the live VisionAbacus
- * widget embedded on accountinghomeloans.com.au (2026–27 rates) — not from
+ * widget embedded on accountinghomeloans.com.au (2026–27 rates)   not from
  * memory. Every bracket, FHB rule and fee below was captured verbatim and
  * cross-checked against that tool's own displayed output. Still: state
  * budgets change these, so treat this as "as accurate as the reference tool
@@ -39,7 +39,7 @@ function bracketDuty(value: number, brackets: Bracket[]): number {
 }
 
 // ---------------------------------------------------------------------------
-// ACT — from 1 July 2025 general rates; FHB gets a full, uncapped exemption
+// ACT   from 1 July 2025 general rates; FHB gets a full, uncapped exemption
 // from 1 July 2026 (no income test, no value cap) for a principal residence.
 // ---------------------------------------------------------------------------
 const ACT_OWNER: Bracket[] = [
@@ -71,7 +71,7 @@ function calcACT(input: StampDutyInput): { duty: number; concession: boolean } {
 }
 
 // ---------------------------------------------------------------------------
-// NSW — general rate from 1 July 2026. FHB Assistance: full exemption to
+// NSW   general rate from 1 July 2026. FHB Assistance: full exemption to
 // $800k / taper to $1M for homes; full exemption to $350k / taper to $450k
 // for vacant land.
 // ---------------------------------------------------------------------------
@@ -102,10 +102,10 @@ function calcNSW(input: StampDutyInput): { duty: number; concession: boolean } {
 }
 
 // ---------------------------------------------------------------------------
-// NT — formula-based below $525k, flat percentage tiers above.
+// NT   formula-based below $525k, flat percentage tiers above.
 // ---------------------------------------------------------------------------
 function ntDutyUnder525k(value: number): number {
-  // V in the published formula is the value in thousands, not raw dollars —
+  // V in the published formula is the value in thousands, not raw dollars  
   // using raw dollars here previously produced a duty figure in the
   // millions on an ordinary property. Verified against a known benchmark:
   // $500,000 -> $23,928.60.
@@ -128,7 +128,7 @@ function calcNT(input: StampDutyInput): { duty: number; concession: boolean } {
 }
 
 // ---------------------------------------------------------------------------
-// QLD — separate "Home Concession" rate for owner-occupiers vs the general
+// QLD   separate "Home Concession" rate for owner-occupiers vs the general
 // rate for investors. FHB: full exemption for new/vacant land (no cap);
 // established homes get the Home Concession rate minus a sliding rebate
 // that phases out between $700k and $800k.
@@ -166,7 +166,7 @@ function calcQLD(input: StampDutyInput): { duty: number; concession: boolean } {
 }
 
 // ---------------------------------------------------------------------------
-// SA — single rate scale for all buyers. Full FHB relief (uncapped) for new
+// SA   single rate scale for all buyers. Full FHB relief (uncapped) for new
 // homes / vacant land to build, since 6 June 2024.
 // ---------------------------------------------------------------------------
 const SA_GENERAL: Bracket[] = [
@@ -190,8 +190,8 @@ function calcSA(input: StampDutyInput): { duty: number; concession: boolean } {
 }
 
 // ---------------------------------------------------------------------------
-// TAS — single rate scale. No stamp duty concession currently listed for
-// FHB (the grant is the only FHB benefit) — a past concession has lapsed.
+// TAS   single rate scale. No stamp duty concession currently listed for
+// FHB (the grant is the only FHB benefit)   a past concession has lapsed.
 // ---------------------------------------------------------------------------
 const TAS_GENERAL: Bracket[] = [
   { upTo: 3000, base: 50, rate: 0, over: 0 },
@@ -208,7 +208,7 @@ function calcTAS(input: StampDutyInput): { duty: number; concession: boolean } {
 }
 
 // ---------------------------------------------------------------------------
-// VIC — separate Principal Place of Residence (PPR) rate applies only
+// VIC   separate Principal Place of Residence (PPR) rate applies only
 // between $130k–$550k; outside that band even owner-occupiers pay the
 // general/non-PPR rate. FHB: full exemption to $600k / taper to $750k.
 // ---------------------------------------------------------------------------
@@ -237,9 +237,9 @@ function calcVIC(input: StampDutyInput): { duty: number; concession: boolean } {
 }
 
 // ---------------------------------------------------------------------------
-// WA — general rate scale. FHB has its own standalone formula (not a taper
+// WA   general rate scale. FHB has its own standalone formula (not a taper
 // of the general rate): free to $600k, then $16.15 per $100 up to $800k
-// (Perth metro/Peel — regional caps differ and aren't modelled here).
+// (Perth metro/Peel   regional caps differ and aren't modelled here).
 // ---------------------------------------------------------------------------
 const WA_GENERAL: Bracket[] = [
   { upTo: 120000, base: 0, rate: 0.019, over: 0 },
@@ -266,7 +266,7 @@ function calcWA(input: StampDutyInput): { duty: number; concession: boolean } {
 }
 
 // ---------------------------------------------------------------------------
-// Registration/transfer fees and FHOG per state — also pulled from the same
+// Registration/transfer fees and FHOG per state   also pulled from the same
 // disclosure. Several states have small tiered transfer-fee tables; the
 // common/lower tiers are modelled, higher tiers fall back to the top rate.
 // ---------------------------------------------------------------------------
@@ -304,7 +304,7 @@ const STATE_FEES: Record<AuState, StateFees> = {
 };
 
 // WA's registration-fee tiers are irregular below $200k ($85k/$120k/$200k
-// bands) before settling into even $100k steps — a formula can't reproduce
+// bands) before settling into even $100k steps   a formula can't reproduce
 // that, so this is the exact published table.
 const WA_TRANSFER_TIERS: [number, number][] = [
   [85000, 225.1],

@@ -30,7 +30,7 @@ export default function PrivacyPage() {
       <LegalHero
         eyebrow="Privacy Policy"
         title="How we handle your information"
-        intro="A plain-English account of what we collect, why, and what say you have over it — written to the Australian Privacy Principles, not around them."
+        intro="A plain-English account of what we collect, why, and what say you have over it   written to the Australian Privacy Principles, not around them."
         reference="FIN-PP-2026"
         updated="September 2026"
         tldr="Short version: we only collect what's needed to find you a loan, we never sell it, and you can ask to see or correct it at any time."
@@ -47,11 +47,11 @@ export default function PrivacyPage() {
           <LegalProse>
             <p>
               When you enquire, apply, or use a calculator on this site, we may collect your{" "}
-              <strong>name, contact details, employment, income, expenses, assets and liabilities</strong> — the
+              <strong>name, contact details, employment, income, expenses, assets and liabilities</strong>   the
               same information a lender would eventually ask for, just gathered once, by us, on your behalf.
             </p>
             <p>
-              Calculator inputs stay in your browser unless you choose to send us the result — using a
+              Calculator inputs stay in your browser unless you choose to send us the result   using a
               calculator alone doesn&apos;t put you on our mailing list or in our CRM.
             </p>
           </LegalProse>
@@ -72,7 +72,7 @@ export default function PrivacyPage() {
         <LegalSection id="who-we-share-with" number="03" title="Who we share it with">
           <LegalProse>
             <p>
-              Only the parties genuinely involved in getting your loan approved — never sold or handed to
+              Only the parties genuinely involved in getting your loan approved   never sold or handed to
               third parties for marketing.
             </p>
           </LegalProse>
@@ -81,7 +81,7 @@ export default function PrivacyPage() {
               { term: "Lenders", detail: "To assess and process the application you've asked us to submit." },
               { term: "Aggregator", detail: "Our lending platform, which lodges applications on our panel." },
               { term: "Credit bureaus", detail: "For credit checks required as part of responsible lending." },
-              { term: "Marketing", detail: "Never — your data is not sold or shared for third-party advertising." },
+              { term: "Marketing", detail: "Never   your data is not sold or shared for third-party advertising." },
             ]}
           />
         </LegalSection>
@@ -107,7 +107,7 @@ export default function PrivacyPage() {
         <LegalSection id="cookies-security" number="05" title="Cookies & security">
           <LegalProse>
             <p>
-              This site may use basic analytics cookies to understand how it&apos;s used — nothing that
+              This site may use basic analytics cookies to understand how it&apos;s used   nothing that
               identifies you personally, and no third-party ad tracking.
             </p>
             <p>
@@ -120,7 +120,7 @@ export default function PrivacyPage() {
         <LegalSection id="contact" number="06" title="Contact & complaints">
           <LegalProse>
             <p>
-              Contact us directly first — we reply to privacy enquiries within one business day. If
+              Contact us directly first   we reply to privacy enquiries within one business day. If
               you&apos;re not satisfied with how we&apos;ve handled your information, you&apos;re free to
               escalate to the OAIC.
             </p>

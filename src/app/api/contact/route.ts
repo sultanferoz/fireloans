@@ -8,7 +8,7 @@ export const runtime = "nodejs";
 const ASSESSMENT_RECIPIENT = "rumina@fireloans.com.au";
 // Resend requires the "from" domain to be verified in the Resend dashboard before it can send
 // as @fireloans.com.au. Until that's done, swap this for the Resend sandbox sender
-// ("onboarding@resend.dev") for testing — it only delivers to the account owner's own address.
+// ("onboarding@resend.dev") for testing   it only delivers to the account owner's own address.
 const FROM_ADDRESS = "Fire Loans Website <noreply@fireloans.com.au>";
 
 function escapeHtml(value: string): string {
@@ -29,7 +29,7 @@ function getClientIp(req: NextRequest): string {
 export async function POST(req: NextRequest) {
   const ip = getClientIp(req);
 
-  // 5 submissions per 10 minutes per IP — a real enquirer never needs more than that.
+  // 5 submissions per 10 minutes per IP   a real enquirer never needs more than that.
   const { allowed, retryAfterMs } = checkRateLimit(`contact:${ip}`, 5, 10 * 60 * 1000);
   if (!allowed) {
     return NextResponse.json(
@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.error("Contact form submission received but RESEND_API_KEY is not configured — email not sent.", {
+    console.error("Contact form submission received but RESEND_API_KEY is not configured   email not sent.", {
       name: data.fullName,
       email: data.email,
     });
@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
       from: FROM_ADDRESS,
       to: ASSESSMENT_RECIPIENT,
       replyTo: data.email,
-      subject: `New assessment request — ${data.fullName} (${data.loanType})`,
+      subject: `New assessment request   ${data.fullName} (${data.loanType})`,
       html: `
         <h2>New free assessment request</h2>
         <p><strong>Name:</strong> ${escapeHtml(data.fullName)}</p>

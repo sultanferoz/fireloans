@@ -35,7 +35,7 @@ export type BalancePoint = { period: number; year: number; balance: number; cumu
 
 /**
  * Builds a yearly balance series for charting, supporting a rate change at
- * `rateChangeAtPeriod` (used for intro/honeymoon-rate loans) — the payment is
+ * `rateChangeAtPeriod` (used for intro/honeymoon-rate loans)   the payment is
  * recalculated on the remaining balance over the remaining term once the
  * rate changes, matching how real lenders reamortize a loan.
  */
@@ -79,4 +79,95 @@ export function buildAmortizationSeries(params: {
   }
 
   return { series, firstPayment, secondPayment };
+}
+
+/** Converts a period count into whole years + remainder months, rounding once at the total-months level (not per-field) so e.g. 11.6 months carries into the next year instead of ever displaying "13 months". */
+export function periodsToYearsMonths(periods: number, periodsPerYear: number): { years: number; months: number } {
+  const totalMonths = Math.round((periods / periodsPerYear) * 12);
+  return { years: Math.floor(totalMonths / 12), months: totalMonths % 12 };
+}
+
+export type ExtraRepaymentPlan = {
+  minPayment: number;
+  paymentWithExtra: number;
+  payoffPeriods: number;
+  payoffTime: { years: number; months: number };
+  totalInterestPaid: number;
+  totalPaid: number;
+  interestSaved: number;
+  timeSaved: { years: number; months: number };
+  series: BalancePoint[];
+};
+
+/**
+ * Extra-repayment payoff plan, using the same reducing-balance formula every
+ * Australian lender's calculator (ING's Extra Repayments calculator included)
+ * relies on: a constant periodic payment against a compounding balance is a
+ * closed-form geometric series, so paying `extraPerPeriod` more each period
+ * is equivalent to re-running `remainingBalance` with the larger payment and
+ * solving for the period where it hits zero, rather than a period-by-period
+ * simulation loop.
+ */
+export function buildExtraRepaymentPlan(params: {
+  principal: number;
+  annualRatePct: number;
+  totalPeriods: number;
+  periodsPerYear: number;
+  extraPerPeriod: number;
+}): ExtraRepaymentPlan {
+  const { principal, annualRatePct, totalPeriods, periodsPerYear, extraPerPeriod } = params;
+  const r = annualRatePct / 100 / periodsPerYear;
+  const minPayment = periodicPayment(principal, annualRatePct, totalPeriods, periodsPerYear);
+  const paymentWithExtra = minPayment + Math.max(0, extraPerPeriod);
+  const baselineInterest = minPayment * totalPeriods - principal;
+
+  let payoffPeriods = totalPeriods;
+  if (extraPerPeriod > 0 && paymentWithExtra > principal * r) {
+    const exactPeriods =
+      r === 0
+        ? principal / paymentWithExtra
+        : Math.log(paymentWithExtra / (paymentWithExtra - principal * r)) / Math.log(1 + r);
+    payoffPeriods = Math.min(totalPeriods, Math.max(1, Math.ceil(exactPeriods - 1e-9)));
+  }
+
+  // The closed-form balance is exact only up to the second-last period — the final
+  // payment is simulated directly so it clears the remaining balance exactly rather
+  // than overshooting into negative territory.
+  const balanceBeforeLast = remainingBalance(principal, annualRatePct, periodsPerYear, paymentWithExtra, payoffPeriods - 1);
+  const interestOnLast = balanceBeforeLast * r;
+  const lastPayment = Math.min(paymentWithExtra, balanceBeforeLast + interestOnLast);
+  const totalPaid = paymentWithExtra * (payoffPeriods - 1) + lastPayment;
+  const totalInterestPaid = totalPaid - principal;
+
+  const yearsTotal = Math.ceil(totalPeriods / periodsPerYear);
+  const series: BalancePoint[] = [];
+  for (let year = 0; year <= yearsTotal; year++) {
+    const period = Math.min(year * periodsPerYear, totalPeriods);
+    let balance: number;
+    let cumulativePaid: number;
+    if (period >= payoffPeriods) {
+      balance = 0;
+      cumulativePaid = totalPaid;
+    } else {
+      balance = remainingBalance(principal, annualRatePct, periodsPerYear, paymentWithExtra, period);
+      cumulativePaid = paymentWithExtra * period;
+    }
+    series.push({ period, year, balance, cumulativePaid });
+  }
+
+  const payoffTime = periodsToYearsMonths(payoffPeriods, periodsPerYear);
+  const baselineTime = periodsToYearsMonths(totalPeriods, periodsPerYear);
+  const savedMonthsTotal = baselineTime.years * 12 + baselineTime.months - (payoffTime.years * 12 + payoffTime.months);
+
+  return {
+    minPayment,
+    paymentWithExtra,
+    payoffPeriods,
+    payoffTime,
+    totalInterestPaid,
+    totalPaid,
+    interestSaved: Math.max(0, baselineInterest - totalInterestPaid),
+    timeSaved: { years: Math.floor(Math.max(0, savedMonthsTotal) / 12), months: Math.max(0, savedMonthsTotal) % 12 },
+    series,
+  };
 }

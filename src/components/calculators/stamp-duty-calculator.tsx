@@ -111,7 +111,7 @@ export function StampDutyCalculator() {
           </div>
           <p className="text-xs text-cream/50">
             Rates and thresholds shown are {state} general estimates and change with each state
-            budget — confirm the current figure with {state} Revenue Office or your Fire Loans
+            budget   confirm the current figure with {state} Revenue Office or your Fire Loans
             broker before relying on it.
           </p>
         </div>

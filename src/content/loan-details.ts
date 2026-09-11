@@ -21,7 +21,7 @@ export const loanDetails: Record<string, LoanDetail> = {
     heroImage: "/images/owner.jpg",
     headline: "The loan you'll actually live in, structured right from day one",
     subhead:
-      "Buying the home you'll live in is a different lending conversation to an investment — it's about the rate today and the flexibility over the next ten years. We compare fixed, variable and split structures across our panel so the loan fits your life, not the other way around.",
+      "Buying the home you'll live in is a different lending conversation to an investment   it's about the rate today and the flexibility over the next ten years. We compare fixed, variable and split structures across our panel so the loan fits your life, not the other way around.",
     keyFacts: ["Up to 95% LVR", "P&I or Interest-Only", "Fixed, variable or split"],
     whoItsFor: [
       "First home buyers navigating deposits, grants and LMI for the first time",
@@ -32,11 +32,11 @@ export const loanDetails: Record<string, LoanDetail> = {
     process: [
       {
         title: "Free serviceability assessment",
-        description: "We work out what you can actually borrow, based on real income, expenses and the APRA buffer lenders apply — not a rough guess.",
+        description: "We work out what you can actually borrow, based on real income, expenses and the APRA buffer lenders apply   not a rough guess.",
       },
       {
         title: "Compare the panel",
-        description: "Your numbers go up against lenders on our panel for rate, LMI treatment, offset access and fees — not just the first bank you'd have called.",
+        description: "Your numbers go up against lenders on our panel for rate, LMI treatment, offset access and fees   not just the first bank you'd have called.",
       },
       {
         title: "Pre-approval",
@@ -54,7 +54,7 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         title: "LMI strategy",
-        description: "Where LMI applies over 80% LVR, we compare how it's calculated across lenders — including waivers for some professions.",
+        description: "Where LMI applies over 80% LVR, we compare how it's calculated across lenders   including waivers for some professions.",
       },
       {
         title: "First Home Buyer support",
@@ -62,7 +62,7 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         title: "Split-rate flexibility",
-        description: "Fix part of your rate for certainty and leave the rest variable for offset access — a structure many first-time buyers don't know exists.",
+        description: "Fix part of your rate for certainty and leave the rest variable for offset access   a structure many first-time buyers don't know exists.",
       },
     ],
     faqs: [
@@ -72,7 +72,7 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         q: "Do I need a 20% deposit?",
-        a: "No — many lenders on our panel go up to 95% LVR. Above 80% LVR, Lenders Mortgage Insurance (LMI) typically applies, which we factor into the comparison.",
+        a: "No   many lenders on our panel go up to 95% LVR. Above 80% LVR, Lenders Mortgage Insurance (LMI) typically applies, which we factor into the comparison.",
       },
       {
         q: "What's the difference between fixed, variable and split?",
@@ -80,10 +80,10 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         q: "Can I get pre-approved before I've found a property?",
-        a: "Yes — most buyers get pre-approved first, which gives a clear budget and stronger negotiating position at inspections and auctions.",
+        a: "Yes   most buyers get pre-approved first, which gives a clear budget and stronger negotiating position at inspections and auctions.",
       },
     ],
-    tip: "Ask about split-rate structuring before you fix — most first home buyers only find out it exists after they've already locked in a fully fixed rate.",
+    tip: "Ask about split-rate structuring before you fix   most first home buyers only find out it exists after they've already locked in a fully fixed rate.",
     calculatorHref: "/calculators/borrowing-power",
     calculatorLabel: "Estimate your borrowing power",
   },
@@ -93,7 +93,7 @@ export const loanDetails: Record<string, LoanDetail> = {
     heroImage: "/images/home.jpg",
     headline: "Finance built to grow your portfolio, not just settle one property",
     subhead:
-      "An investment loan does more work than an owner-occupied one — it needs to support serviceability for the property after this one. We structure lending around interest-only terms, cross-collateralisation risk and offset access, so your next purchase isn't harder because of how this one was set up.",
+      "An investment loan does more work than an owner-occupied one   it needs to support serviceability for the property after this one. We structure lending around interest-only terms, cross-collateralisation risk and offset access, so your next purchase isn't harder because of how this one was set up.",
     keyFacts: ["Interest-Only to 5 yrs", "Up to 90% LVR", "Fixed & variable"],
     whoItsFor: [
       "First-time property investors comparing structures before they buy",
@@ -108,7 +108,7 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         title: "Structure comparison",
-        description: "Interest-only vs P&I, standalone vs cross-collateralised security — we lay out the trade-offs across panel lenders.",
+        description: "Interest-only vs P&I, standalone vs cross-collateralised security   we lay out the trade-offs across panel lenders.",
       },
       {
         title: "Equity & deposit strategy",
@@ -130,7 +130,7 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         title: "Offset on investment lending",
-        description: "Not every lender offers offset accounts on investment loans at competitive rates — we know which ones do.",
+        description: "Not every lender offers offset accounts on investment loans at competitive rates   we know which ones do.",
       },
       {
         title: "Depreciation-friendly structuring",
@@ -140,7 +140,7 @@ export const loanDetails: Record<string, LoanDetail> = {
     faqs: [
       {
         q: "Interest-only or principal & interest for an investment property?",
-        a: "Interest-only frees up cash flow but doesn't reduce the loan balance. The right choice depends on your strategy, tax position and how long you plan to hold — worth discussing before you decide.",
+        a: "Interest-only frees up cash flow but doesn't reduce the loan balance. The right choice depends on your strategy, tax position and how long you plan to hold   worth discussing before you decide.",
       },
       {
         q: "Can I use equity from my home to fund the deposit?",
@@ -148,14 +148,14 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         q: "What's cross-collateralisation and why does it matter?",
-        a: "It's when one loan is secured against multiple properties. It can limit your flexibility to sell or refinance one property independently — something we try to avoid by default.",
+        a: "It's when one loan is secured against multiple properties. It can limit your flexibility to sell or refinance one property independently   something we try to avoid by default.",
       },
       {
         q: "How does negative gearing affect what I can borrow?",
-        a: "Lenders treat rental income and any tax benefit differently — some shade rental income, others factor gearing losses into serviceability. We compare how your numbers actually land across the panel.",
+        a: "Lenders treat rental income and any tax benefit differently   some shade rental income, others factor gearing losses into serviceability. We compare how your numbers actually land across the panel.",
       },
     ],
-    tip: "Ask specifically whether your loan will be standalone or cross-collateralised before you sign — it's one of the most common structuring mistakes we see investors inherit from their first lender.",
+    tip: "Ask specifically whether your loan will be standalone or cross-collateralised before you sign   it's one of the most common structuring mistakes we see investors inherit from their first lender.",
     calculatorHref: "/calculators/borrowing-power",
     calculatorLabel: "Check your investment borrowing power",
   },
@@ -165,7 +165,7 @@ export const loanDetails: Record<string, LoanDetail> = {
     heroImage: "/images/smsf.jpg",
     headline: "Property investment through your super, structured to stay compliant",
     subhead:
-      "SMSF lending runs through a Limited Recourse Borrowing Arrangement (LRBA) and a bare trust — get the structure wrong and it's not just a lending problem, it's a compliance one. We work alongside your accountant or financial adviser to get the lending side right.",
+      "SMSF lending runs through a Limited Recourse Borrowing Arrangement (LRBA) and a bare trust   get the structure wrong and it's not just a lending problem, it's a compliance one. We work alongside your accountant or financial adviser to get the lending side right.",
     keyFacts: ["LRBA structure", "Up to ~80% LVR", "Residential & commercial"],
     whoItsFor: [
       "SMSF trustees looking to add property to the fund's investment strategy",
@@ -176,11 +176,11 @@ export const loanDetails: Record<string, LoanDetail> = {
     process: [
       {
         title: "Eligibility & structure check",
-        description: "We confirm the fund's position and coordinate with your financial adviser or accountant before anything is submitted to a lender — this isn't a loan we push without that in place.",
+        description: "We confirm the fund's position and coordinate with your financial adviser or accountant before anything is submitted to a lender   this isn't a loan we push without that in place.",
       },
       {
         title: "Panel comparison for SMSF lending",
-        description: "Not every lender offers LRBA lending, and terms vary — we compare the ones who do against your fund's specific position.",
+        description: "Not every lender offers LRBA lending, and terms vary   we compare the ones who do against your fund's specific position.",
       },
       {
         title: "Bare trust & LRBA documentation",
@@ -212,22 +212,22 @@ export const loanDetails: Record<string, LoanDetail> = {
     faqs: [
       {
         q: "What is an LRBA, in plain terms?",
-        a: "A Limited Recourse Borrowing Arrangement lets an SMSF borrow to buy a single asset, held in a separate bare trust, where the lender's recourse if things go wrong is limited to that asset — not the fund's other assets.",
+        a: "A Limited Recourse Borrowing Arrangement lets an SMSF borrow to buy a single asset, held in a separate bare trust, where the lender's recourse if things go wrong is limited to that asset   not the fund's other assets.",
       },
       {
         q: "Do I need a financial adviser to get an SMSF loan?",
-        a: "We strongly recommend it, and many lenders expect to see evidence of financial advice before approving SMSF lending. This is credit assistance, not financial advice — the two need to work together here.",
+        a: "We strongly recommend it, and many lenders expect to see evidence of financial advice before approving SMSF lending. This is credit assistance, not financial advice   the two need to work together here.",
       },
       {
         q: "Can my SMSF buy the premises my business operates from?",
-        a: "Often yes, as business real property, provided the arrangement meets superannuation law requirements — this is exactly the kind of structure we'd confirm with your adviser first.",
+        a: "Often yes, as business real property, provided the arrangement meets superannuation law requirements   this is exactly the kind of structure we'd confirm with your adviser first.",
       },
       {
         q: "What deposit does the SMSF need?",
-        a: "SMSF lending typically requires a larger deposit than standard residential lending, and the fund needs to retain enough liquidity to cover its other obligations — we factor this into the comparison.",
+        a: "SMSF lending typically requires a larger deposit than standard residential lending, and the fund needs to retain enough liquidity to cover its other obligations   we factor this into the comparison.",
       },
     ],
-    tip: "Loop in your financial adviser before we approach lenders, not after — SMSF lending decisions and superannuation strategy need to be made together, not in sequence.",
+    tip: "Loop in your financial adviser before we approach lenders, not after   SMSF lending decisions and superannuation strategy need to be made together, not in sequence.",
     calculatorHref: "/calculators/repayments",
     calculatorLabel: "Model SMSF loan repayments",
   },
@@ -252,7 +252,7 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         title: "Panel comparison for trust lending",
-        description: "Trust lending policies vary significantly between lenders — we compare which ones will actually work with your structure.",
+        description: "Trust lending policies vary significantly between lenders   we compare which ones will actually work with your structure.",
       },
       {
         title: "Guarantor & security documentation",
@@ -274,7 +274,7 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         title: "Asset-protection aware",
-        description: "We structure lending in a way that respects why the trust exists in the first place — not just to get a loan approved.",
+        description: "We structure lending in a way that respects why the trust exists in the first place   not just to get a loan approved.",
       },
       {
         title: "Works with your accountant",
@@ -284,7 +284,7 @@ export const loanDetails: Record<string, LoanDetail> = {
     faqs: [
       {
         q: "Can a trust borrow money the same way an individual can?",
-        a: "Yes, but the lender assesses the trustee's borrowing power under the trust deed, and often looks through to the beneficiaries — it's a different assessment path to a standard personal application.",
+        a: "Yes, but the lender assesses the trustee's borrowing power under the trust deed, and often looks through to the beneficiaries   it's a different assessment path to a standard personal application.",
       },
       {
         q: "Do trustees have to personally guarantee the loan?",
@@ -292,14 +292,14 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         q: "What documents will the lender want from the trust?",
-        a: "Typically the trust deed, any deed of variation, and evidence of the trustee's authority to borrow — we compile this checklist with your accountant before submission.",
+        a: "Typically the trust deed, any deed of variation, and evidence of the trustee's authority to borrow   we compile this checklist with your accountant before submission.",
       },
       {
         q: "Is this different from a normal home loan application?",
-        a: "Structurally yes — the entity borrowing is the trustee, not you personally, which changes the paperwork and which lenders are a fit, even if the property itself is a standard purchase.",
+        a: "Structurally yes   the entity borrowing is the trustee, not you personally, which changes the paperwork and which lenders are a fit, even if the property itself is a standard purchase.",
       },
     ],
-    tip: "Send us the trust deed early — the borrowing clause alone can rule out or rule in half the lender panel before we even discuss rates.",
+    tip: "Send us the trust deed early   the borrowing clause alone can rule out or rule in half the lender panel before we even discuss rates.",
     calculatorHref: "/calculators/repayments",
     calculatorLabel: "Model trust loan repayments",
   },
@@ -309,7 +309,7 @@ export const loanDetails: Record<string, LoanDetail> = {
     heroImage: "/images/company.jpg",
     headline: "Finance in your company's name, backed by the right structure",
     subhead:
-      "Borrowing through a Pty Ltd company changes what a lender wants to see — trading history, director guarantees and company financials, not just a payslip. We package the application the way a commercial credit team actually wants to read it.",
+      "Borrowing through a Pty Ltd company changes what a lender wants to see   trading history, director guarantees and company financials, not just a payslip. We package the application the way a commercial credit team actually wants to read it.",
     keyFacts: ["Corporate borrower lending", "Director guarantees may apply", "Property & asset finance"],
     whoItsFor: [
       "Pty Ltd companies purchasing commercial or investment property",
@@ -356,7 +356,7 @@ export const loanDetails: Record<string, LoanDetail> = {
     faqs: [
       {
         q: "Does the company need a long trading history?",
-        a: "It helps, but newer companies can still qualify depending on the director's experience, the financials, and the security offered — we'll tell you honestly where you sit.",
+        a: "It helps, but newer companies can still qualify depending on the director's experience, the financials, and the security offered   we'll tell you honestly where you sit.",
       },
       {
         q: "Do directors have to personally guarantee the loan?",
@@ -364,14 +364,14 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         q: "Can a brand-new company borrow?",
-        a: "Sometimes, especially with strong director experience and adequate security — but options are more limited than for an established trading entity.",
+        a: "Sometimes, especially with strong director experience and adequate security   but options are more limited than for an established trading entity.",
       },
       {
         q: "What financials will lenders ask for?",
         a: "Typically the last two years of financial statements and tax returns, current BAS, and a company structure chart if there's a group involved.",
       },
     ],
-    tip: "Get your accountant to prepare a one-page group structure chart before we submit anything — it answers half the credit team's questions before they ask them.",
+    tip: "Get your accountant to prepare a one-page group structure chart before we submit anything   it answers half the credit team's questions before they ask them.",
     calculatorHref: "/calculators/repayments",
     calculatorLabel: "Model company loan repayments",
   },
@@ -381,7 +381,7 @@ export const loanDetails: Record<string, LoanDetail> = {
     heroImage: "/images/car.jpg",
     headline: "Finance sorted before you fall for the car",
     subhead:
-      "Walking onto a lot with finance already approved changes the entire negotiation. We compare fixed-rate terms, balloon options and private-sale eligibility across our panel, so you're choosing a car — not being sold a finance package.",
+      "Walking onto a lot with finance already approved changes the entire negotiation. We compare fixed-rate terms, balloon options and private-sale eligibility across our panel, so you're choosing a car   not being sold a finance package.",
     keyFacts: ["New & used vehicles", "Terms 1–7 years", "Balloon options available"],
     whoItsFor: [
       "Private buyers who want pre-approval before they start shopping",
@@ -400,7 +400,7 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         title: "Choose your vehicle",
-        description: "Shop with confidence, whether it's a dealership, private sale or trade-in — your finance is already sorted.",
+        description: "Shop with confidence, whether it's a dealership, private sale or trade-in   your finance is already sorted.",
       },
       {
         title: "Settlement to the seller",
@@ -428,22 +428,22 @@ export const loanDetails: Record<string, LoanDetail> = {
     faqs: [
       {
         q: "Can I get pre-approved before I've chosen a car?",
-        a: "Yes — most buyers get pre-approved first, which gives a clear budget and stronger position when negotiating on price.",
+        a: "Yes   most buyers get pre-approved first, which gives a clear budget and stronger position when negotiating on price.",
       },
       {
-        q: "Fixed rate or a balloon payment — what's the difference?",
+        q: "Fixed rate or a balloon payment   what's the difference?",
         a: "A fixed rate keeps your repayment the same for the full term. Adding a balloon lowers your monthly repayment but leaves a lump sum owing at the end of the term.",
       },
       {
         q: "Can I finance a car bought from a private seller?",
-        a: "Often yes, depending on the lender — we'll confirm which panel lenders support private sales for your situation.",
+        a: "Often yes, depending on the lender   we'll confirm which panel lenders support private sales for your situation.",
       },
       {
         q: "Will a car loan affect how much I can borrow for a home loan?",
-        a: "Yes — it's counted as an existing commitment in serviceability calculations, so timing matters if you're planning both.",
+        a: "Yes   it's counted as an existing commitment in serviceability calculations, so timing matters if you're planning both.",
       },
     ],
-    tip: "If you're planning to apply for a home loan in the next 12 months, get that conversation started before you commit to a car loan — the repayment affects your borrowing power either way.",
+    tip: "If you're planning to apply for a home loan in the next 12 months, get that conversation started before you commit to a car loan   the repayment affects your borrowing power either way.",
     calculatorHref: "/calculators/repayments",
     calculatorLabel: "Estimate car loan repayments",
   },
@@ -453,7 +453,7 @@ export const loanDetails: Record<string, LoanDetail> = {
     heroImage: "/images/construction.jpg",
     headline: "Funding released stage by stage, matched to your build",
     subhead:
-      "A construction loan isn't a lump sum — it's progressive drawdowns tied to your builder's fixed-price contract, with interest charged only on funds you've actually drawn. We manage the lender side of that process so it keeps pace with your build.",
+      "A construction loan isn't a lump sum   it's progressive drawdowns tied to your builder's fixed-price contract, with interest charged only on funds you've actually drawn. We manage the lender side of that process so it keeps pace with your build.",
     keyFacts: ["Progressive drawdown", "Interest-only during build", "Fixed-price contract required"],
     whoItsFor: [
       "Buyers building a new home on a vacant block",
@@ -468,7 +468,7 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         title: "Panel comparison for construction lending",
-        description: "Not every lender handles construction the same way — we compare valuation requirements, drawdown fees and rate treatment.",
+        description: "Not every lender handles construction the same way   we compare valuation requirements, drawdown fees and rate treatment.",
       },
       {
         title: "Progressive drawdowns",
@@ -482,7 +482,7 @@ export const loanDetails: Record<string, LoanDetail> = {
     features: [
       {
         title: "Stage payments matched to your builder",
-        description: "Drawdowns aligned to your builder's payment schedule — slab, frame, lock-up, fit-out and completion.",
+        description: "Drawdowns aligned to your builder's payment schedule   slab, frame, lock-up, fit-out and completion.",
       },
       {
         title: "Interest on funds drawn only",
@@ -500,22 +500,22 @@ export const loanDetails: Record<string, LoanDetail> = {
     faqs: [
       {
         q: "How do progress payments actually work?",
-        a: "Your builder invoices at each stage of the fixed-price contract — slab, frame, lock-up, fit-out, completion — and the lender releases funds against each invoice after a valuation check.",
+        a: "Your builder invoices at each stage of the fixed-price contract   slab, frame, lock-up, fit-out, completion   and the lender releases funds against each invoice after a valuation check.",
       },
       {
         q: "Do I pay interest on the full loan amount straight away?",
-        a: "No — interest is generally charged only on the portion of the loan that's actually been drawn down at each stage, not the full approved amount.",
+        a: "No   interest is generally charged only on the portion of the loan that's actually been drawn down at each stage, not the full approved amount.",
       },
       {
         q: "What happens if the build goes over budget or over time?",
-        a: "This is worth discussing with us and your builder early — cost overruns can require additional funds to be approved, and delays can affect fixed-rate lock-in periods.",
+        a: "This is worth discussing with us and your builder early   cost overruns can require additional funds to be approved, and delays can affect fixed-rate lock-in periods.",
       },
       {
         q: "Can this be used for a knockdown-rebuild?",
-        a: "Yes — the same progressive drawdown structure applies whether you're building on vacant land or rebuilding on your existing block.",
+        a: "Yes   the same progressive drawdown structure applies whether you're building on vacant land or rebuilding on your existing block.",
       },
     ],
-    tip: "Lock in your builder's fixed-price contract before we submit to lenders — a contract that's still subject to change is one of the most common causes of delayed construction loan approval.",
+    tip: "Lock in your builder's fixed-price contract before we submit to lenders   a contract that's still subject to change is one of the most common causes of delayed construction loan approval.",
     calculatorHref: "/calculators/repayments",
     calculatorLabel: "Model construction loan repayments",
   },
@@ -525,7 +525,7 @@ export const loanDetails: Record<string, LoanDetail> = {
     heroImage: "/images/comercial.jpg",
     headline: "Commercial property finance built around the asset and the tenant",
     subhead:
-      "Commercial lending is assessed differently to residential — the property type, lease terms and tenant strength all shape what a lender will offer. We compare panel lenders on that basis, not by treating it like a standard home loan with a bigger number.",
+      "Commercial lending is assessed differently to residential   the property type, lease terms and tenant strength all shape what a lender will offer. We compare panel lenders on that basis, not by treating it like a standard home loan with a bigger number.",
     keyFacts: ["Up to ~70–80% LVR", "Owner-occupied & investment", "Terms up to 15–25 years"],
     whoItsFor: [
       "Business owners buying the premises they operate from",
@@ -540,7 +540,7 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         title: "Panel comparison for commercial lending",
-        description: "Commercial lending policy and pricing vary widely between lenders — we compare on your specific property and use case.",
+        description: "Commercial lending policy and pricing vary widely between lenders   we compare on your specific property and use case.",
       },
       {
         title: "Valuation & due diligence",
@@ -572,22 +572,22 @@ export const loanDetails: Record<string, LoanDetail> = {
     faqs: [
       {
         q: "How is commercial lending different from a home loan?",
-        a: "Lenders assess the property type, lease strength and often a shorter loan term with a higher rate than residential lending — the criteria are genuinely different, not just a bigger version of a home loan.",
+        a: "Lenders assess the property type, lease strength and often a shorter loan term with a higher rate than residential lending   the criteria are genuinely different, not just a bigger version of a home loan.",
       },
       {
         q: "Does a strong lease help me borrow more?",
-        a: "Often yes — a long lease to a financially strong tenant can improve serviceability and lender appetite for the deal.",
+        a: "Often yes   a long lease to a financially strong tenant can improve serviceability and lender appetite for the deal.",
       },
       {
         q: "What deposit is typically required?",
-        a: "Commercial lending generally requires a larger deposit than residential — commonly in the order of 20–30%, though it varies by property type and lender.",
+        a: "Commercial lending generally requires a larger deposit than residential   commonly in the order of 20–30%, though it varies by property type and lender.",
       },
       {
         q: "Can my SMSF buy the commercial premises my business uses?",
-        a: "Potentially, as business real property held via an LRBA — see our SMSF lending page, and we'd coordinate this with your financial adviser.",
+        a: "Potentially, as business real property held via an LRBA   see our SMSF lending page, and we'd coordinate this with your financial adviser.",
       },
     ],
-    tip: "Get a copy of the current lease agreement to us early if this is an investment purchase — tenant strength and lease term can move the borrowing outcome more than the property itself.",
+    tip: "Get a copy of the current lease agreement to us early if this is an investment purchase   tenant strength and lease term can move the borrowing outcome more than the property itself.",
     calculatorHref: "/calculators/repayments",
     calculatorLabel: "Model commercial loan repayments",
   },
@@ -612,7 +612,7 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         title: "Compare the panel",
-        description: "We compare rate, term and structure across lenders — including against any offer the supplier has already made you.",
+        description: "We compare rate, term and structure across lenders   including against any offer the supplier has already made you.",
       },
       {
         title: "Application & supplier coordination",
@@ -634,7 +634,7 @@ export const loanDetails: Record<string, LoanDetail> = {
       },
       {
         title: "Potential tax benefits",
-        description: "Structures like chattel mortgage may offer tax advantages — confirm the specifics with your accountant.",
+        description: "Structures like chattel mortgage may offer tax advantages   confirm the specifics with your accountant.",
       },
       {
         title: "Fixed repayments",
@@ -643,23 +643,23 @@ export const loanDetails: Record<string, LoanDetail> = {
     ],
     faqs: [
       {
-        q: "Chattel mortgage or lease — what's the actual difference?",
+        q: "Chattel mortgage or lease   what's the actual difference?",
         a: "With a chattel mortgage, you own the equipment from day one and the lender takes security over it. With a lease, the financier owns it and you pay to use it, often with an option to purchase at the end.",
       },
       {
         q: "Can I finance used equipment, not just new?",
-        a: "Often yes, though terms, age limits and rates can differ from new equipment — we'll confirm what's available for the specific item.",
+        a: "Often yes, though terms, age limits and rates can differ from new equipment   we'll confirm what's available for the specific item.",
       },
       {
         q: "Are the repayments tax deductible?",
-        a: "This depends on the structure and your business circumstances — we'd recommend confirming the specifics with your accountant before choosing a structure.",
+        a: "This depends on the structure and your business circumstances   we'd recommend confirming the specifics with your accountant before choosing a structure.",
       },
       {
         q: "How quickly can funds reach the supplier?",
         a: "For established businesses with straightforward equipment, approval and settlement can often happen within days.",
       },
     ],
-    tip: "Get the supplier's own finance quote in writing before you sign anything — it gives us a real number to beat when we compare the panel.",
+    tip: "Get the supplier's own finance quote in writing before you sign anything   it gives us a real number to beat when we compare the panel.",
     calculatorHref: "/calculators/repayments",
     calculatorLabel: "Model equipment loan repayments",
   },

@@ -26,7 +26,7 @@ export function CalculatorLayout({
 
         <div className="mt-10 rounded-xl bg-cream-muted p-4 text-sm leading-relaxed text-ink-soft">
           This calculator provides estimates only, based on the figures you enter and general
-          assumptions — it doesn&apos;t take into account your full financial situation and isn&apos;t
+          assumptions   it doesn&apos;t take into account your full financial situation and isn&apos;t
           formal lending or financial advice. Talk to a Fire Loans broker for an assessment specific to
           you.
         </div>
@@ -41,7 +41,7 @@ export function CalculatorGrid({ inputs, results }: { inputs: ReactNode; results
       <div className="rounded-3xl bg-paper p-6 shadow-xl shadow-ink/5 sm:p-8 lg:col-span-7">{inputs}</div>
 
       {/* This column stays as tall as the inputs column (default grid stretch) purely to give
-          the sticky card below room to travel — it un-sticks once its tall parent runs out,
+          the sticky card below room to travel   it un-sticks once its tall parent runs out,
           i.e. exactly when the inputs column ends. */}
       <div className="lg:col-span-5">
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-pine-900 p-6 text-cream shadow-2xl shadow-pine-950/40 sm:p-8 lg:sticky lg:top-24">

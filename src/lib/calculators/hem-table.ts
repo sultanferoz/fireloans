@@ -2,7 +2,7 @@
  * Household Expenditure Measure (HEM) benchmark table, sourced directly from a
  * major Australian lender's published broker serviceability calculator
  * (effective 17 July 2026). Values are monthly minimum living-expense
- * benchmarks by household composition and gross annual income band — used as
+ * benchmarks by household composition and gross annual income band   used as
  * a floor beneath declared general living expenses, the same way a real
  * lender applies it.
  */

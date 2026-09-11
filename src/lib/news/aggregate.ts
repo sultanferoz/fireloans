@@ -19,10 +19,10 @@ function dedupe(items: NewsItem[]): NewsItem[] {
 }
 
 /**
- * Fetches every configured RSS source in parallel (Promise.allSettled — one failing
+ * Fetches every configured RSS source in parallel (Promise.allSettled   one failing
  * source never breaks the others), plus NewsData.io / GNews if their API keys are
  * configured, then merges, dedupes, filters to AU mortgage/finance relevance, sorts by
- * publish date, and caps the result. Called only from Server Components — nothing here
+ * publish date, and caps the result. Called only from Server Components   nothing here
  * ever runs in the browser.
  */
 export async function getNews(): Promise<NewsResult> {

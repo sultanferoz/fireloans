@@ -3,9 +3,9 @@ import { getHemMonthly } from "./hem-table";
 
 // Resident tax rates for the 2026–27 year: the "Round 2" cuts legislated in
 // the 2024–25 Budget took the 16% bracket to 15% from 1 July 2026 (and to
-// 14% from 1 July 2027 — update again when this site is still live then).
+// 14% from 1 July 2027   update again when this site is still live then).
 // Cross-checked cell-for-cell against a major lender's own broker
-// serviceability workbook (References!B14:D19, "effective 17/07/2026") — identical.
+// serviceability workbook (References!B14:D19, "effective 17/07/2026")   identical.
 const TAX_BRACKETS_2026_27 = [
   { upTo: 18200, base: 0, rate: 0 },
   { upTo: 45000, base: 0, rate: 0.15 },
@@ -16,7 +16,7 @@ const TAX_BRACKETS_2026_27 = [
 
 const MEDICARE_LEVY_RATE = 0.02;
 
-/** Rough resident income tax + 2% Medicare levy estimate — for illustration only. */
+/** Rough resident income tax + 2% Medicare levy estimate   for illustration only. */
 export function estimateAnnualNetIncome(gross: number): number {
   if (gross <= 0) return 0;
   const bracket =
@@ -46,7 +46,7 @@ export type RateType = "variable" | "fixed";
 /**
  * The following constants and formulas are ported directly from a major
  * Australian lender's own broker serviceability calculator (a .xlsm
- * workbook, effective 17 July 2026) — not invented. Source cell/name
+ * workbook, effective 17 July 2026)   not invented. Source cell/name
  * references are noted in parentheses throughout this file.
  */
 // The assessed rate is never lower than this floor, regardless of the actual offered rate (minVar_rate).
@@ -54,11 +54,11 @@ export const MIN_ASSESSMENT_RATE_PCT = 5.3;
 // Buffer added on top of the (rate, floor)-max: 3.00% standard, 2.25% for a 4-5yr fixed rate (Var_buffer / Fix_buffer).
 export const VARIABLE_BUFFER_PCT = 3.0;
 export const FIXED_LONG_TERM_BUFFER_PCT = 2.25;
-// Credit cards & BNPL assessed at 45.6% p.a. of the limit — i.e. 3.8% applied monthly (Notes: "45.6% p.a of credit card limits").
+// Credit cards & BNPL assessed at 45.6% p.a. of the limit   i.e. 3.8% applied monthly (Notes: "45.6% p.a of credit card limits").
 export const CREDIT_CARD_ASSESSMENT_RATE = 0.038;
 // Fallback remaining term used to benchmark an existing debt when no term is given (Default_Loan_Assess_Term_Months).
 export const DEFAULT_ASSESS_TERM_MONTHS = 294;
-// The workbook doesn't apply a flat "safety margin" — instead, a loan that leaves less than
+// The workbook doesn't apply a flat "safety margin"   instead, a loan that leaves less than
 // $500/month surplus is flagged to refer to a credit assessor rather than auto-passing
 // (Is_SurplusInDangerZone). We use that same $500 line as the practical ceiling for an auto "pass".
 export const MIN_MONTHLY_SURPLUS_BUFFER = 500;
@@ -67,8 +67,8 @@ export const MIN_MONTHLY_SURPLUS_BUFFER = 500;
 export const NSR_PASS_MESSAGE = "Passes serviceability test";
 export const NSR_FAIL_MESSAGE = "Fails serviceability test based on the figures entered";
 export const NSR_REFER_MESSAGE =
-  "Refer to a broker — minimum surplus of $500/month is required unless satisfactory evidence of at least $10,000 in savings, redraw or liquid assets is available.";
-// Variable/other income (rental, bonus, overtime, commission) is rarely accepted dollar-for-dollar —
+  "Refer to a broker   minimum surplus of $500/month is required unless satisfactory evidence of at least $10,000 in savings, redraw or liquid assets is available.";
+// Variable/other income (rental, bonus, overtime, commission) is rarely accepted dollar-for-dollar  
 // not verified against the source file (which handles this via separate rental/self-employed
 // worksheets we haven't ported); kept as our own conservative industry-standard shading.
 export const OTHER_INCOME_SHADING = 0.8;
@@ -78,7 +78,7 @@ function assessedRateFor(interestRatePct: number, rateType: RateType, fixedTermY
   return Math.max(interestRatePct + buffer, MIN_ASSESSMENT_RATE_PCT);
 }
 
-/** One existing credit facility (limit/rate/term/actual repayment) — mirrors the workbook's per-account debt rows. */
+/** One existing credit facility (limit/rate/term/actual repayment)   mirrors the workbook's per-account debt rows. */
 export type ExistingDebtAccount = {
   limit: number;
   ratePct: number; // 0 = unknown; the floor rate alone is used, matching the source formula
@@ -92,7 +92,7 @@ export function emptyDebtAccount(): ExistingDebtAccount {
 
 /**
  * Assessed as the GREATER of the actual declared repayment or a benchmark repayment
- * recalculated at the buffered/floored rate over the (remaining) term — exactly the
+ * recalculated at the buffered/floored rate over the (remaining) term   exactly the
  * workbook's own `=MAX(declared repayment, PMT(MAX(rate+buffer,floor), term, limit))`
  * pattern used for every existing mortgage, personal loan, hire purchase, lease and
  * other/margin facility (Serviceability Worksheet!AF361:AG369).
@@ -179,7 +179,7 @@ export function calculateBorrowingPower(input: BorrowingPowerInput): BorrowingPo
   const grossOtherIncome = toAnnual(input.otherIncome, input.otherIncomeFrequency);
   const grossNonTaxableIncome = toAnnual(input.nonTaxableIncome, input.nonTaxableIncomeFrequency);
 
-  // Overtime/bonus/other income shaded before tax — combined with salary per applicant so
+  // Overtime/bonus/other income shaded before tax   combined with salary per applicant so
   // progressive tax brackets apply once to the whole taxable amount, not per income source.
   const taxableIncome1 = grossSalary1 + grossOvertimeBonus1 * OTHER_INCOME_SHADING;
   const taxableIncome2 = grossSalary2 + grossOvertimeBonus2 * OTHER_INCOME_SHADING;
@@ -213,7 +213,7 @@ export function calculateBorrowingPower(input: BorrowingPowerInput): BorrowingPo
   const otherCommitmentsMonthly = toAnnual(input.otherCommitments, input.otherCommitmentsFrequency) / 12;
   const creditCardLiability = input.totalCreditCardLimits * CREDIT_CARD_ASSESSMENT_RATE;
   // BNPL: the source formula compares an annual repayment figure against a raw balance dollar
-  // figure (AG370 = balance, not a recalculated benchmark) — internally inconsistent units, so
+  // figure (AG370 = balance, not a recalculated benchmark)   internally inconsistent units, so
   // rather than propagate what looks like a template quirk, BNPL is assessed the same
   // conservative way as credit cards: limit × the same monthly assessment rate.
   const bnplBenchmarkAnnual = input.bnplLimit * CREDIT_CARD_ASSESSMENT_RATE * 12;
@@ -227,7 +227,7 @@ export function calculateBorrowingPower(input: BorrowingPowerInput): BorrowingPo
   const assessableCapacity = Math.max(0, monthlySurplus - MIN_MONTHLY_SURPLUS_BUFFER);
 
   // An interest-only period is assessed by amortising the FULL loan over just the
-  // remaining principal & interest years, not the whole term — the same conservative
+  // remaining principal & interest years, not the whole term   the same conservative
   // treatment as the source workbook (`PMT(rate, (LoanTerm - IntOnlyPrd)*12, LoanAmt)`),
   // so an IO loan always shows lower borrowing power than the same loan on P&I.
   const isInterestOnly = input.repaymentBasis === "interest_only";

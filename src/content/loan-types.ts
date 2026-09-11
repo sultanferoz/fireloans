@@ -13,7 +13,7 @@ export type LoanIcon =
 export type LoanTypeEntry = {
   slug: string;
   title: string;
-  /** Plain, literal category name — used in SEO metadata and anywhere the branded
+  /** Plain, literal category name   used in SEO metadata and anywhere the branded
    * name alone would be ambiguous (search results, page titles). */
   formalName: string;
   description: string;

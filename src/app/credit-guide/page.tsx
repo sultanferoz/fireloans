@@ -10,7 +10,7 @@ import { LegalDocumentShell, ReadingProgressBar, type LegalSectionMeta } from "@
 
 export const metadata: Metadata = {
   title: "Credit Guide",
-  description: "Fire Loans' Credit Guide — who we are, what we do, how we're paid, and how to raise a concern.",
+  description: "Fire Loans' Credit Guide   who we are, what we do, how we're paid, and how to raise a concern.",
   alternates: { canonical: "/credit-guide" },
 };
 
@@ -30,7 +30,7 @@ export default function CreditGuidePage() {
       <LegalHero
         eyebrow="Credit Guide"
         title="Who we are, before you sign anything"
-        intro="Australian law requires every credit representative to give you this guide before providing credit assistance — here's ours, in full, before you need to ask."
+        intro="Australian law requires every credit representative to give you this guide before providing credit assistance   here's ours, in full, before you need to ask."
         reference="FIN-CG-2026"
         updated="September 2026"
         tldr="Short version: we're licensed, we compare lenders on your behalf, we're paid by the lender not you, and you're never obliged to proceed."
@@ -58,7 +58,7 @@ export default function CreditGuidePage() {
           <LegalProse>
             <p>
               Owner-occupied, investment, SMSF, trust, company, construction, commercial, business, car and
-              equipment finance — we assess your situation and compare options across our lender panel.
+              equipment finance   we assess your situation and compare options across our lender panel.
             </p>
           </LegalProse>
         </LegalSection>
@@ -67,7 +67,7 @@ export default function CreditGuidePage() {
           <LegalProse>
             <p>
               We gather information about your objectives and financial situation, compare suitable options
-              across our panel, and only recommend a loan we reasonably believe is not unsuitable for you —
+              across our panel, and only recommend a loan we reasonably believe is not unsuitable for you  
               in line with our responsible lending obligations.
             </p>
           </LegalProse>
@@ -85,12 +85,12 @@ export default function CreditGuidePage() {
         >
           <LegalProse>
             <p>
-              We&apos;re generally paid a commission by the lender when your loan settles — at no direct cost
+              We&apos;re generally paid a commission by the lender when your loan settles   at no direct cost
               to you. Some lenders may also pay volume-based benefits; ask us for the specifics relevant to
               your loan.
             </p>
             <p>
-              Because we&apos;re paid by lenders, this creates a potential conflict of interest — which is
+              Because we&apos;re paid by lenders, this creates a potential conflict of interest   which is
               exactly why our responsible lending obligations require us to recommend only what&apos;s
               suitable for you, not what pays the most.
             </p>
@@ -100,11 +100,11 @@ export default function CreditGuidePage() {
         <LegalSection id="complaints" number="05" title="Complaints & disputes">
           <LegalFactGrid
             facts={[
-              { term: "Step 1", detail: "Contact us on 0478 933 786 or broker@fireloans.com.au — we aim to resolve it directly." },
+              { term: "Step 1", detail: "Contact us on 0478 933 786 or broker@fireloans.com.au   we aim to resolve it directly." },
               {
                 term: "Step 2",
                 detail:
-                  "If unresolved, escalate free of charge to the Australian Financial Complaints Authority (AFCA) — afca.org.au, 1800 931 678.",
+                  "If unresolved, escalate free of charge to the Australian Financial Complaints Authority (AFCA)   afca.org.au, 1800 931 678.",
               },
             ]}
           />

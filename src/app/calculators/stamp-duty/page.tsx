@@ -12,7 +12,7 @@ export default function StampDutyPage() {
   return (
     <CalculatorLayout
       title="Stamp Duty Calculator"
-      description="Estimate government fees and grants for your state — including first home buyer concessions."
+      description="Estimate government fees and grants for your state   including first home buyer concessions."
     >
       <StampDutyCalculator />
     </CalculatorLayout>

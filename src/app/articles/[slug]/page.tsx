@@ -72,7 +72,7 @@ export default async function ArticleDetailPage({
           ← All articles
         </Link>
 
-        <span className="mt-6 inline-flex rounded-full bg-gold-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold-700">
+        <span className="ml-3 inline-flex rounded-full bg-gold-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gold-700">
           {frontmatter.category}
         </span>
         <h1 className="mt-4 font-display text-4xl font-semibold tracking-tight text-ink sm:text-5xl">

@@ -1,8 +1,22 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function NewsHero() {
   return (
     <section className="relative overflow-hidden bg-pine-950 text-cream">
+      <Image
+        src="/images/news.jpg"
+        alt=""
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover opacity-75 contrast-125 grayscale"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-pine-700 mix-blend-color" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-pine-950/85 via-pine-950/60 to-pine-950"
+        aria-hidden="true"
+      />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.06]"
         aria-hidden="true"
@@ -23,7 +37,7 @@ export function NewsHero() {
         </h1>
         <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-cream/70">
           Stay up to date with the latest Australian home loan, interest rate, banking,
-          property and lending developments — explained simply by Fire Loans.
+          property and lending developments   explained simply by Fire Loans.
         </p>
         <p className="mt-4 text-xs uppercase tracking-wide text-cream/40">
           Updated regularly from trusted Australian sources

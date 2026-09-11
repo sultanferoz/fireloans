@@ -5,6 +5,7 @@ import {
   PERIODS_PER_YEAR,
   type RepaymentFrequency,
   buildAmortizationSeries,
+  buildExtraRepaymentPlan,
 } from "@/lib/calculators/amortization";
 import { CalculatorGrid } from "./calculator-layout";
 import {
@@ -18,17 +19,26 @@ import {
   formatCurrency,
   formatCurrency2,
 } from "./calculator-fields";
-import { MiniAreaChart } from "./mini-area-chart";
+import { DualAreaChart } from "./dual-area-chart";
 
 type FeeFrequency = "monthly" | "annually" | "one-off";
 
+function formatYearsMonths({ years, months }: { years: number; months: number }): string {
+  if (years <= 0 && months <= 0) return "0 months";
+  const parts: string[] = [];
+  if (years > 0) parts.push(`${years} ${years === 1 ? "year" : "years"}`);
+  if (months > 0) parts.push(`${months} ${months === 1 ? "month" : "months"}`);
+  return parts.join(" ");
+}
+
 export function RepaymentCalculator() {
   const [loanAmount, setLoanAmount] = useState(400000);
-  const [interestRate, setInterestRate] = useState(5.5);
+  const [interestRate, setInterestRate] = useState(6.09);
   const [loanTerm, setLoanTerm] = useState(30);
   const [fee, setFee] = useState(0);
   const [feeFrequency, setFeeFrequency] = useState<FeeFrequency>("monthly");
   const [frequency, setFrequency] = useState<RepaymentFrequency>("monthly");
+  const [extraRepayment, setExtraRepayment] = useState(0);
 
   const result = useMemo(() => {
     const periodsPerYear = PERIODS_PER_YEAR[frequency];
@@ -54,10 +64,44 @@ export function RepaymentCalculator() {
     const totalPayments = repaymentWithFee * totalPeriods + oneOffFee;
     const totalInterestAndFees = totalPayments - loanAmount;
 
-    return { series, periodicRepayment: repaymentWithFee, totalPayments, totalInterestAndFees, periodsPerYear };
-  }, [loanAmount, interestRate, loanTerm, fee, feeFrequency, frequency]);
+    const extraPlan =
+      extraRepayment > 0
+        ? buildExtraRepaymentPlan({
+            principal: loanAmount,
+            annualRatePct: interestRate,
+            totalPeriods,
+            periodsPerYear,
+            extraPerPeriod: extraRepayment,
+          })
+        : null;
 
-  const chartPoints = result.series.map((p) => ({ x: p.year, y: p.balance }));
+    return {
+      series,
+      periodicRepayment: repaymentWithFee,
+      totalPayments,
+      totalInterestAndFees,
+      periodsPerYear,
+      loanTerm,
+      extraPlan,
+    };
+  }, [loanAmount, interestRate, loanTerm, fee, feeFrequency, frequency, extraRepayment]);
+
+  const chartSeries = [
+    {
+      label: result.extraPlan ? "Without extra repayments" : "Loan balance",
+      color: "#D8BD85",
+      points: result.series.map((p) => ({ x: p.year, y: p.balance })),
+    },
+    ...(result.extraPlan
+      ? [
+          {
+            label: "With extra repayments",
+            color: "#0E8F68",
+            points: result.extraPlan.series.map((p) => ({ x: p.year, y: p.balance })),
+          },
+        ]
+      : []),
+  ];
   const frequencyLabel = { weekly: "Weekly", fortnightly: "Fortnightly", monthly: "Monthly" }[frequency];
 
   return (
@@ -103,6 +147,12 @@ export function RepaymentCalculator() {
               ]}
             />
           </FieldGroup>
+          <FieldGroup
+            label="Extra repayment"
+            hint={`Optional, on top of your ${frequencyLabel.toLowerCase()} repayment`}
+          >
+            <CurrencyInput value={extraRepayment} onChange={setExtraRepayment} />
+          </FieldGroup>
         </div>
       }
       results={
@@ -117,14 +167,34 @@ export function RepaymentCalculator() {
             <ResultStat label="Total interest &amp; fees" value={formatCurrency(result.totalInterestAndFees)} />
             <ResultStat label="Total payments" value={formatCurrency(result.totalPayments)} />
           </div>
+
+          {result.extraPlan && (
+            <div className="rounded-2xl border border-gold-500/25 bg-gold-500/10 p-4">
+              <p className="text-sm font-semibold text-gold-400">With extra repayments, you could:</p>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                <div>
+                  <p className="text-xs text-cream/55">Pay off your loan in</p>
+                  <p className="font-display text-lg font-semibold text-paper">
+                    {formatYearsMonths(result.extraPlan.payoffTime)}
+                  </p>
+                  <p className="text-xs text-gold-400">{formatYearsMonths(result.extraPlan.timeSaved)} sooner</p>
+                </div>
+                <div>
+                  <p className="text-xs text-cream/55">Interest saved</p>
+                  <p className="font-display text-lg font-semibold text-paper">
+                    {formatCurrency(result.extraPlan.interestSaved)}
+                  </p>
+                  <p className="text-xs text-cream/50">
+                    new repayment {formatCurrency2(result.extraPlan.paymentWithExtra)}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           <div>
             <p className="mb-2 text-sm text-cream/60">Loan balance over time</p>
-            <MiniAreaChart
-              points={chartPoints}
-              color="#D8BD85"
-              formatX={(x) => `Yr ${x}`}
-              formatY={(y) => formatCurrency(y)}
-            />
+            <DualAreaChart series={chartSeries} formatX={(x) => `Yr ${x}`} formatY={(y) => formatCurrency(y)} />
           </div>
         </div>
       }

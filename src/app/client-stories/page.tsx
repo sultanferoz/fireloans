@@ -12,7 +12,7 @@ type StoryFrontmatter = {
 export const metadata: Metadata = {
   title: "Client Stories",
   description:
-    "How real Fire Loans clients — first home buyers, investors, business owners and builders — found the right loan structure for their situation.",
+    "How real Fire Loans clients   first home buyers, investors, business owners and builders   found the right loan structure for their situation.",
   alternates: { canonical: "/client-stories" },
 };
 
@@ -32,7 +32,7 @@ export default function ClientStoriesPage() {
         </h1>
         <p className="mt-4 text-lg text-ink-soft">
           These are composite, anonymised illustrations of the situations we help clients work
-          through — not verbatim testimonials. They&apos;re here so you can see whether your own
+          through   not verbatim testimonials. They&apos;re here so you can see whether your own
           situation looks familiar.
         </p>
       </div>

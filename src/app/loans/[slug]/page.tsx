@@ -27,7 +27,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const loan = getLoanType(slug);
   const detail = getLoanDetail(slug);
-  const pageTitle = loan ? (loan.title === loan.formalName ? loan.title : `${loan.title} — ${loan.formalName}`) : "Coming Soon";
+  const pageTitle = loan ? (loan.title === loan.formalName ? loan.title : `${loan.title}   ${loan.formalName}`) : "Coming Soon";
   return {
     title: pageTitle,
     description: detail?.subhead ?? loan?.description,
@@ -59,7 +59,7 @@ export default async function LoanTypePage({
         title={title}
         description={
           loan
-            ? `${loan.description} We're building out the full ${loan.title} page — get in touch now and a broker can walk you through it today.`
+            ? `${loan.description} We're building out the full ${loan.title} page   get in touch now and a broker can walk you through it today.`
             : "We're building out this page. Get in touch and a broker can help you directly today."
         }
       />

@@ -134,7 +134,7 @@ export default function Home() {
             Four ways we get you there
           </h2>
           <p className="mt-3 text-ink-soft">
-            Real lending strategy matched to where you are in life — not a generic rate
+            Real lending strategy matched to where you are in life   not a generic rate
             comparison.
           </p>
         </div>
@@ -177,7 +177,7 @@ export default function Home() {
           </h2>
           <p className="mt-4 text-ink-soft">
             Composite, anonymised illustrations of situations we help clients
-            work through — not verbatim testimonials.
+            work through   not verbatim testimonials.
           </p>
         </div>
         <div className="mt-10">
@@ -196,7 +196,7 @@ export default function Home() {
           </h2>
           <p className="mt-3 text-ink-soft">
             Real tax brackets, a genuine household expenditure benchmark, and a proper rate
-            buffer — the same serviceability approach real lenders use. Enter your numbers
+            buffer   the same serviceability approach real lenders use. Enter your numbers
             below for a real answer in minutes.
           </p>
         </div>
@@ -205,7 +205,7 @@ export default function Home() {
         </div>
         <p className="mx-auto mt-8 max-w-3xl rounded-xl bg-cream-muted p-4 text-center text-sm leading-relaxed text-ink-soft">
           This calculator provides estimates only, based on the figures you enter and general
-          assumptions — it doesn&apos;t take into account your full financial situation and isn&apos;t
+          assumptions   it doesn&apos;t take into account your full financial situation and isn&apos;t
           formal lending or financial advice. Talk to a Fire Loans broker for an assessment
           specific to you.
         </p>
@@ -237,7 +237,7 @@ export default function Home() {
                   </h2>
                   <p className="mt-4 leading-relaxed text-cream/75">
                     A few details now means a broker can review it and call you back with a
-                    real, tailored answer — not a generic quote.
+                    real, tailored answer   not a generic quote.
                   </p>
 
                   <div className="mt-8 flex flex-col gap-5">
@@ -263,7 +263,7 @@ export default function Home() {
                       <div>
                         <p className="font-semibold text-paper">Your privacy protected</p>
                         <p className="text-sm text-cream/65">
-                          Your details go only to Fire Loans — never sold or shared with third-party marketers.
+                          Your details go only to Fire Loans   never sold or shared with third-party marketers.
                         </p>
                       </div>
                     </div>
@@ -293,7 +293,7 @@ export default function Home() {
 
                 <div className="rounded-xl border border-white/15 bg-white/10 p-4 text-sm text-cream/70 backdrop-blur-sm">
                   <span className="font-semibold text-paper">No impact on your credit score: </span>
-                  this form is an initial conversation, not a credit application — it doesn&apos;t
+                  this form is an initial conversation, not a credit application   it doesn&apos;t
                   record an enquiry on your credit file.
                 </div>
               </div>
