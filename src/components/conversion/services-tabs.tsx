@@ -71,8 +71,8 @@ const tabs: ServiceTab[] = [
     ],
     linkLabel: "Structure your purchase application",
     mockup: {
-      title: "Purchase Approval Dossier",
-      subtitle: "Live Application Timeline Simulation",
+      title: "Home Purchase Journey",
+      subtitle: "Live Application Timeline",
       status: "Approved",
       items: [
         {
@@ -114,8 +114,8 @@ const tabs: ServiceTab[] = [
     ],
     linkLabel: "Structure your refinance application",
     mockup: {
-      title: "Refinance Approval Dossier",
-      subtitle: "Live Switch Timeline Simulation",
+      title: "Refinance Journey",
+      subtitle: "Live Application Timeline",
       status: "Switched",
       items: [
         {
@@ -162,8 +162,8 @@ const tabs: ServiceTab[] = [
     ],
     linkLabel: "Structure your commercial application",
     mockup: {
-      title: "Facility Approval Dossier",
-      subtitle: "Live Facility Timeline Simulation",
+      title: "Loan Approval Journey",
+      subtitle: "Live Application Timeline",
       status: "Approved",
       items: [
         {
@@ -210,8 +210,8 @@ const tabs: ServiceTab[] = [
     ],
     linkLabel: "Structure your asset application",
     mockup: {
-      title: "Asset Approval Dossier",
-      subtitle: "Live Underwriting Timeline Simulation",
+      title: "Asset Finance Journey",
+      subtitle: "Live Application Timeline",
       status: "Settled",
       items: [
         {
